@@ -83,7 +83,7 @@ class Lenoir {
                 <title>${page}</title>
                 <meta name="viewport" content="width=device-width,initial-scale=1" />
                 <meta name="description" content="" />
-                <link rel="stylesheet" type="text/css" href="Lenoir/lenoir.css" />
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/rockwillck/Lenoir@443f8e007d11d70e80d799f9e5070eef3e99512d/Lenoir/lenoir.css" />
                 <link rel="stylesheet" type="text/css" href="theme.css" />
                 <link rel="icon" href="">
             </head>
