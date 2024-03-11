@@ -1,0 +1,153 @@
+:root {
+	--debug: none;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.heading {
+	width: 100vw;
+	border: var(--debug);
+	border-color: blue;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+}
+
+.banner {
+	box-sizing: border-box;
+	overflow: hidden;
+	position: relative;
+}
+.banner > .bannerImg {
+	position: absolute;
+	left: 50%;
+	/* top: x%; translate: -x%; */
+	top: 50%;
+	translate: -50% -50%;
+	min-height: 200vh;
+	min-width: 100vw;
+	z-index: -1;
+	border: solid;
+}
+
+.hero {
+	height: 100vh;
+}
+
+.large {
+	height: max(200px, 50vh);
+}
+.small {
+}
+.title {
+
+}
+
+.section {
+	display: flex;
+	border: var(--debug);
+	border-color: red;
+	flex-direction: row;
+	box-sizing: border-box;
+}
+@media (orientation:portrait) {
+	.section {
+		flex-direction: column;
+	}
+}
+
+.vstack {
+	display: flex;
+	flex-direction: column;
+	border: var(--debug);
+	flex: 1;
+	border: var(--debug);
+	border-color: purple;
+	box-sizing: border-box;
+}
+.part {
+	border: var(--debug);
+	border-color: green;
+	display: flex;
+	flex-direction: row;
+	box-sizing: border-box;
+	justify-content: center;
+	align-items: center;
+}
+
+.left {
+	text-align: left;
+}
+.right {
+	text-align: right;
+}
+.center {
+	text-align: center;
+}
+
+.spacer {
+	border: var(--debug);
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+}
+
+.nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	padding: 10px;
+	box-sizing: border-box;
+	z-index: 3;
+	translate: 0 0;
+	transition: 0.2s;
+}
+.links {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.openButton {
+	position: fixed;
+}
+@media (orientation:landscape) {
+	.nav {
+		flex-direction: row;
+		width: 100vw;
+	}
+	.links {
+		justify-content: end;
+		flex-direction: row;
+	}
+	.foldButton, .openButton {
+		transform: scale(0);
+		width: 0;
+		height: 0;
+		padding: 0;
+		margin: 0;
+		opacity: 0;
+	}
+}
+@media (orientation:portrait) {
+	.nav {
+		flex-direction: column;
+		height: 100vh;
+	}
+
+	.foldButton {
+	}
+
+	.openButton {
+		translate: -10vw 0;
+		transition: 0.22s;
+		z-index: 3;
+	}
+}

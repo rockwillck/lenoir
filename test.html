@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strings to Zip with JSZip</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+</head>
+<body>
+  <button onclick="createZip()">Create Zip</button>
+
+  <script>
+    function createZip() {
+      // Strings to be converted to files
+      const strings = ["Hello World!", "This is a test.", "Another string."];
+      const zip = new JSZip();
+
+      // Convert each string to a text file
+      strings.forEach((str, index) => {
+        const filename = `file${index + 1}.txt`;
+        zip.file(filename, str);
+      });
+
+      // Generate the zip file
+      zip.generateAsync({ type: "blob" })
+        .then(function (blob) {
+          const zipFilename = 'files.zip';
+          const downloadLink = document.createElement('a');
+          downloadLink.href = URL.createObjectURL(blob);
+          downloadLink.download = zipFilename;
+          downloadLink.click();
+        })
+        .catch(function (error) {
+          console.error('Error creating zip file:', error);
+        });
+    }
+  </script>
+</body>
+</html>
