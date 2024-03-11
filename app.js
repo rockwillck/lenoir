@@ -63,4 +63,3 @@ function about() {
 about()
 
 Lenoir.load("Lenoir")
-Lenoir.bake()
