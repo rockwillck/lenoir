@@ -29,3 +29,11 @@ function image(src) {
     return i
 }
 LenoirExtensions.registerComponentType("image", image)
+
+function link(src) {
+    let a = document.createElement("A")
+    a.innerText = src[0]
+    a.href = src[1]
+    return a
+}
+LenoirExtensions.registerComponentType("link", link)

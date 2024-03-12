@@ -41,4 +41,17 @@ class LenoirPrebuilts {
         section.appendPart(monologue)
         return section
     }
+
+    static link(text, src) {
+        let section = new Section()
+        let part = new Part(8, 10)
+        part.appendComponent(new Component("link", text, src))
+        section.appendPart(part)
+        return section
+    }
+}
+
+function ultra(page, section) {
+    section.compile()
+    page.appendSection(section)
 }
