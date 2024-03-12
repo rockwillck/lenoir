@@ -49,11 +49,25 @@ body {
 .spacer {
 }
 
+h1, h2, h3, h4, h5, h6 {
+	padding: 30px;
+	box-sizing: border-box;
+}
+
 h1 {
 	font-size: max(24px, 10vmin);
 }
 h2 {
 	font-size: max(20px, 5vmin);
+}
+h3 {
+	font-size: max(18px, 3vmin);
+}
+
+img {
+	border-radius: 10px;
+	border: solid;
+	box-shadow: 10px 10px 0 black;
 }
 
 .nav {
@@ -64,15 +78,20 @@ h2 {
 .links {
 }
 
+.siteName {
+	padding: 10px;
+}
 .siteLink {
-	background-color: black;
-	color: white;
+	color: inherit;
 	text-decoration: none;
 	transition: 0.2s;
+	border-radius: 10px;
+	padding: 10px !important;
 }
 .siteLink:hover {
-	background-color: white;
-	color: black;
+	font-weight: 500;
+}
+.siteLink:active {
 }
 @media (orientation:landscape) {
 	.siteLink {
@@ -98,6 +117,7 @@ h2 {
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		border-radius: 10px;
 	}
 	.openButton {
 		background-color: white;
@@ -110,6 +130,7 @@ h2 {
 		font-weight: bold;
 		top: 10px;
 		left: 10px;
+		border-radius: 10px;
 	}
 }
 
@@ -120,5 +141,24 @@ h2 {
 	color: white;
 }
 .verticalNav {
+	background-color: transparent;
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	color: white;
+	border-radius: 0 10px 10px 0;
+	width: max(100px, 40vw);
+	background-color: black;
+}
+.verticalNav > .links > .siteLink {
+	border:solid;
+	border-color: white;
+}
+
+p {
 	background-color: white;
+	border: solid;
+	box-shadow: 10px 10px 0 black;
+	padding: 10px;
+	box-sizing: border-box;
+	border-radius: 10px;
 }

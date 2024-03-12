@@ -12,6 +12,9 @@ class Lenoir {
     static ids = {}
     static urls = {}
     static nav
+    static setSections(sections) {
+        LenoirAssistant.sections = sections
+    }
     static registerPage(id, page, url) {
         this.pages[id] = page
         this.ids[page] = id
@@ -191,10 +194,10 @@ class Page {
 
 class Section {
     constructor(align="center") {
-        if (align == "left") {
+        if (align == "top") {
             align = "start"
         }
-        if (align == "right") {
+        if (align == "bottom") {
             align = "end"
         }
         this.parts = []

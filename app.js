@@ -1,7 +1,9 @@
+Lenoir.setSections(26)
+
 // HOME
 function home() {
     let headingContent = new Section()
-    let title = new Part(3, 2)
+    let title = new Part(12, 2)
     title.appendComponent(new Component("header", "Lenoir", 1))
     title.appendComponent(new Component("text", "The Easy Site Maker"))
     headingContent.appendPart(title)
@@ -10,56 +12,52 @@ function home() {
     let backgroundImgSrc = "https://images.unsplash.com/photo-1564730465543-e732e7fc9c10?q=80&w=2886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     let landing = new Page(headingContent, "hero", backgroundImgSrc, 0.5, 0)
 
-    // LenoirExtensions.applyModifier("blur", backgroundImgSrc)
-    //     .then(dataURL => {
-    //         landing.updateBannerImg(dataURL)
-    //     }) 
-    //     .catch(error => {
-    //         console.error(error);
-    //     });
+    section = LenoirPrebuilts.header("The Internet", 2)    
+    section.compile()
+    landing.appendSection(section)
+    
+    section = LenoirPrebuilts.imageTextPair("https://i.ibb.co/jk8X6Rd/http-info-cern-ch.jpg", "When the Internet was first invented, websites looked like this. Plain, simple, and really ugly.")
+    section.compile()
+    landing.appendSection(section)
 
-    let firstSection = new Section()
-    let head1 = new Part(1, 6)
-    head1.appendComponent(new Component("spacer", 30))
-    head1.appendComponent(new Component("header", "Sites Made Simple", 2))
-    head1.appendComponent(new Component("spacer", 30))
-    firstSection.appendPart(head1)
-    firstSection.compile()
-    landing.appendSection(firstSection)
+    section = LenoirPrebuilts.verticalSpacer(100)
+    section.compile()
+    landing.appendSection(section)
+
+    section = LenoirPrebuilts.imageTextPair("https://i.ytimg.com/vi/v1jlkKfwHm8/maxresdefault.jpg", "Now, it looks like this. Beautiful and modern, yet startlingly complex and a nightmare to upkeep.", 1)
+    section.compile()
+    landing.appendSection(section)
+
+    section = LenoirPrebuilts.verticalSpacer(100)
+    section.compile()
+    landing.appendSection(section)
+
+    section = LenoirPrebuilts.header("Meet... Lenoir", 2)
+    section.compile()
+    landing.appendSection(section)
+
+    section = LenoirPrebuilts.monologue(["A simple, highly customizable, abstracted web development toolkit that helps you build out static sites as quickly and efficiently as possible.", "Lenoir is highly opinionated while still giving you complete creative freedom, making sure your sites are both beautiful and your own.", "And unlike other more complex libraries, Lenoir creates semantic, readable HTML."], 8, 10, "center")
+    section.compile()
+    landing.appendSection(section)
+
+    section = LenoirPrebuilts.verticalSpacer(100)
+    section.compile()
+    landing.appendSection(section)
+
+    section = LenoirPrebuilts.header("Features", 2)
+    section.compile()
+    landing.appendSection(section)
+
+    section = LenoirPrebuilts.monologue(["Baking static site files", "Full customizability", "Built-in navigation features"], 8, 10, "center")
+    section.compile()
+    landing.appendSection(section)
+
+    section = LenoirPrebuilts.verticalSpacer(100)
+    section.compile()
+    landing.appendSection(section)
+
     Lenoir.registerPage("Home", landing, "index.html")
 }
 home()
-
-// ABOUT
-function about() {
-    let headingContent = new Section()
-    let title = new Part(3, 2)
-    title.appendComponent(new Component("header", "About Us", 1))
-    title.appendComponent(new Component("text", "The Team Behind Lenoir"))
-    headingContent.appendPart(title)
-    headingContent.compile()
-
-    let backgroundImgSrc = "https://images.unsplash.com/photo-1564730465543-e732e7fc9c10?q=80&w=2886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    let landing = new Page(headingContent, "hero", backgroundImgSrc, 0.5, 0)
-
-    // LenoirExtensions.applyModifier("blur", backgroundImgSrc)
-    //     .then(dataURL => {
-    //         landing.updateBannerImg(dataURL)
-    //     }) 
-    //     .catch(error => {
-    //         console.error(error);
-    //     });
-
-    let firstSection = new Section()
-    let head1 = new Part(1, 6)
-    head1.appendComponent(new Component("spacer", 30))
-    head1.appendComponent(new Component("header", "Our Story", 2))
-    head1.appendComponent(new Component("spacer", 30))
-    firstSection.appendPart(head1)
-    firstSection.compile()
-    landing.appendSection(firstSection)
-    Lenoir.registerPage("About Us", landing, "about.html")
-}
-about()
 
 Lenoir.load("Lenoir")
