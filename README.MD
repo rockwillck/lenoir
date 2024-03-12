@@ -1,8 +1,8 @@
 # Lenoir
 A modern, concise web development toolkit
 ## Features
-- Baking: Build your website, then bake and download the files, all in the frontend.
-- Complete theming access: Lenoir's styling is just a base style sheet, which can be overriden, added to, and enhanced.
+- Baking: Instead of dynamically generating content every time your site loads, you can "bake" your files and generate them just once.
+- Customizable themes: Lenoir's styling is just a base style sheet, which can be overriden, added to, and extended.
 - Built-in navigation tools: with automatically generated and base-styled navbar and side menus, Lenoir takes care of the painful part for you.
 - Responsive design: Lenoir-generated websites are responsive from the very beginning, ready for any platform at any resolution.
 - Accessibility-focused: With accessibility features built into every component that requires one, Lenoir-powered sites help advance a more accessible web.
