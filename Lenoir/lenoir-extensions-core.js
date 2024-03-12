@@ -26,6 +26,7 @@ function image(src) {
     let i = document.createElement("img")
     i.src = src[0]
     i.style.width = "100%"
+    i.alt = src.length > 1 ? src[1] : "An image served by the Lenoir webkit."
     return i
 }
 LenoirExtensions.registerComponentType("image", image)

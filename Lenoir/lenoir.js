@@ -59,6 +59,7 @@ class Lenoir {
         doc.appendChild(this.nav)
         let page = this.pages[document.body.id]
         document.title = this.ids[page]
+        document.querySelector('meta[name="description"]').setAttribute('content', page.description);
         doc.appendChild(page.heading)
         for (let section of page.sections) {
             doc.appendChild(section.div)
@@ -85,7 +86,7 @@ class Lenoir {
                 <meta charset="UTF-8" />
                 <title>${page}</title>
                 <meta name="viewport" content="width=device-width,initial-scale=1" />
-                <meta name="description" content="" />
+                <meta name="description" content="${this.pages[page].description}" />
                 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/rockwillck/Lenoir@acce9c1e8a8fd53839cce69da26db11cac94767d/Lenoir/lenoir.css" />
                 <link rel="stylesheet" type="text/css" href="theme.css" />
                 <link rel="icon" href="">
@@ -159,15 +160,17 @@ class LenoirAssistant {
 }
 
 class Page {
-    constructor(section, type="hero", backgroundImg="https://images.unsplash.com/photo-1709891798937-fd431bd7e10b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", attachmentX=0.5, attachmentY=0.5, parallaxRate=0.8) {
+    constructor(description, section, type="hero", backgroundImg="https://images.unsplash.com/photo-1709891798937-fd431bd7e10b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", attachmentX=0.5, attachmentY=0.5, parallaxRate=0.8) {
         this.sections = []
         this.heading = document.createElement("div")
+        this.description = description
         switch(type) {
             case "hero":
             case "large":
             case "small":
                 this.heading.className = `heading banner ${type}`
                 this.banner = document.createElement("img")
+                this.banner.alt = "Banner image"
                 this.banner.src = backgroundImg
                 this.banner.className = "bannerImg"
                 this.banner.style.left = `${attachmentX*100}%`

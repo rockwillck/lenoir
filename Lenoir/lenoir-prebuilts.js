@@ -1,14 +1,14 @@
 class LenoirPrebuilts {
-    static imageTextPair(imageUrl, text, orientation=0) {
+    static imageTextPair(imageUrl, text, imageAlt, orientation=0) {
         let section = new Section("top")
         let leftSet = new Part(1, Math.floor(LenoirAssistant.sections/2) - 1)
         let rightSet = new Part(Math.floor(LenoirAssistant.sections/2) + 1, LenoirAssistant.sections - Math.floor(LenoirAssistant.sections/2) - 2)
         
         if (orientation == 0) {
-            leftSet.appendComponent(new Component("image", imageUrl))
+            leftSet.appendComponent(new Component("image", imageUrl, imageAlt))
             rightSet.appendComponent(new Component("text", text))
         } else {
-            rightSet.appendComponent(new Component("image", imageUrl))
+            rightSet.appendComponent(new Component("image", imageUrl, imageAlt))
             leftSet.appendComponent(new Component("text", text))
         }
         section.appendPart(leftSet)
@@ -26,7 +26,7 @@ class LenoirPrebuilts {
 
     static header(text, weight=1) {
         let section = new Section()
-        let head = new Part(6, 14)
+        let head = new Part(Math.floor(LenoirAssistant.sections/2) - 1, 2)
         head.appendComponent(new Component("header", text, weight))
         section.appendPart(head)
         return section
