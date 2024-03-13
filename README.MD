@@ -77,13 +77,13 @@ ultra(landing, LenoirPrebuilts.imageTextPair("https://images.unsplash.com/photo-
 ultra(landing, LenoirPrebuilts.verticalSpacer(100))
 ```
 There are two important concepts in these lines: the `ultra` function and the `LenoirPrebuilts` class.  
-Prebuilts are methods that return "prebuilt" sections. Instead of having to create a section, a part, and a component, certain elements can be condensed into one line: `LenoirPrebuilts.header("Hello World", 2)`.   
+Prebuilts are methods that return "prebuilt" sections. Instead of having to create a section, a part, and a component, certain elements can be condensed into one line: `LenoirPrebuilts.header("Hello World", 2)`. The `header` prebuilt works just like the `header` component, while the `imageTextPair` prebuilt takes an image (url or path) and a piece of text. The `verticalSpacer` prebuilt is just like the `spacer` component, except it's all alone in a section and so just gives you vertical space (the height is the only argument).  
 The `ultra` function is another way of condensing code. To add a section, the lines would usually be:
 ```javascript
 section.compile()
 page.appendSection(section)
 ```
-This may not seem like a lot, but with enough sections on enough pages, it adds up. So, the alternative is to use the `ultra`: all you do is feed in the page object (in this case, `landing`) and the section object (`LenoirBuilts.header("Hello World", 2)` return a section with a header), and it's all done for you.
+This may not seem like a lot, but with enough sections on enough pages, it adds up. So, the alternative is to use `ultra`: all you do is feed in the page object (in this case, `landing`) and the section object (`LenoirPrebuilts.header("Hello World", 2)` return a section with a header), and it's all done for you.
 ```javascript
 Lenoir.registerPage("Home", landing, "index.html")
 ```
