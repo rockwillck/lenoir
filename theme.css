@@ -16,7 +16,7 @@ body {
 }
 .banner > .bannerImg {
 	filter: invert() blur(5px) contrast(3) invert();
-	/* -webkit-filter: blur(5px); */
+	-webkit-filter: invert() blur(5px) contrast(3) invert();
 }
 .hero {
 }
@@ -30,7 +30,6 @@ body {
 }
 
 .section {
-	/* background-color: black; */
 }
 @media (orientation:portrait) {
 	.section {
@@ -69,8 +68,6 @@ h3 {
 
 img {
 	border-radius: 10px;
-	/* border: solid; */
-	/* box-shadow: 10px 10px 0 black; */
 	box-shadow: 0 0 10px rgb(0, 0, 0, .25);
 }
 
@@ -163,18 +160,14 @@ img {
 	background-color: black;
 }
 .verticalNav > .links > .siteLink {
-	border:solid;
-	border-color: white;
 }
 
 p {
 	padding: 10px;
 	box-sizing: border-box;
 	border-radius: 10px;
-	/* color: white !important; */
 }
 a {
-	/* color: white; */
 }
 
 pre {
