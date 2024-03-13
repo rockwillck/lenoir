@@ -60,17 +60,17 @@ class Lenoir {
         this.nav.appendChild(siteName)
         let links = document.createElement("div")
         links.className = "links"
-        for (let page of Object.keys(this.pages)) {
+        for (let pageId of Object.keys(this.pages)) {
             let link = document.createElement("a")
-            link.innerText = page
+            link.innerText = pageId
             link.className = "siteLink"
-            link.href = this.urls[page]
+            link.href = this.urls[pageId]
             links.appendChild(link)
         }
         this.nav.appendChild(links)
         doc.appendChild(this.nav)
         let page = this.pages[document.body.id]
-        document.title = this.ids[page]
+        document.title = document.body.id
         document.querySelector('meta[name="description"]').setAttribute('content', page.description);
         doc.appendChild(page.heading)
         for (let section of page.sections) {

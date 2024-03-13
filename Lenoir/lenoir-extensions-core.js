@@ -38,3 +38,37 @@ function link(src) {
     return a
 }
 LenoirExtensions.registerComponentType("link", link)
+
+function mdrenderer(args) {
+    markdown = args[0]
+    markdown = markdown.split("\n").map((x) => x.trim()).join("\n")
+    const result = document.createElement('div');
+    result.className = "markdown"
+    result.style.textAlign = args.length > 1 ? args[1] : "center"
+    let currentElement = result;
+
+    let boldRegex = /\*\*(.*?)\*\*/g;
+    let italicRegex = /\*(.*?)\*/g;
+    let codeRegex = /`(.*?)`/g;
+    let codeBlockRegex = /```([a-zA-Z]+)?\n([\s\S]*?)\n```/g;
+
+    const boldReplace = '<strong>$1</strong>';
+    const italicReplace = '<em>$1</em>';
+    const codeReplace = '<code>$1</code>';
+
+    // Replace code blocks
+    markdown = markdown.replace(codeBlockRegex, (_, language, code) => {
+        return `<pre><code class="${language}">${code}</code></pre>`
+    });
+    console.log(markdown)
+
+    // Replace bold, italic, and inline code
+    markdown = markdown.replace(boldRegex, boldReplace)
+                       .replace(italicRegex, italicReplace)
+                       .replace(codeRegex, codeReplace);
+
+    result.innerHTML = markdown
+
+    return result;
+}
+LenoirExtensions.registerComponentType("markdown", mdrenderer)

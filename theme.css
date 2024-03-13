@@ -75,6 +75,7 @@ img {
 }
 
 .nav {
+	background-color: black;
 }
 .navIcon {
 	filter: invert();
@@ -174,4 +175,15 @@ p {
 }
 a {
 	/* color: white; */
+}
+
+pre {
+	background-color: gainsboro;
+	padding: 10px;
+	box-sizing: border-box;
+	border-radius: 10px;
+}
+
+code {
+	color: rgb(86, 86, 86);
 }
