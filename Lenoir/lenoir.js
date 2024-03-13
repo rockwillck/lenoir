@@ -1,6 +1,7 @@
 class MockDocument {
-    constructor() {
+    constructor(id) {
         this.html = document.createElement("div")
+        this.id = id
     }
     appendChild(node) {
         this.html.appendChild(node)
@@ -69,8 +70,8 @@ class Lenoir {
         }
         this.nav.appendChild(links)
         doc.appendChild(this.nav)
-        let page = this.pages[document.body.id]
-        document.title = document.body.id
+        let page = this.pages[doc.id]
+        document.title = doc.id
         document.querySelector('meta[name="description"]').setAttribute('content', page.description);
         doc.appendChild(page.heading)
         for (let section of page.sections) {
@@ -90,13 +91,13 @@ class Lenoir {
     static bake(name=this.name, favicon=this.favicon, faviconInNav=this.faviconInNav) {
         let bakedDocs = []
         for (let page of Object.keys(this.pages)){
-            let fakeDoc = new MockDocument()
+            let fakeDoc = new MockDocument(page)
             this.load(name, favicon, faviconInNav, fakeDoc)
             bakedDocs.push(`<!DOCTYPE html>
             <html lang="en">
             <head>
                 <meta charset="UTF-8" />
-                <title>${name}</title>
+                <title>${page}</title>
                 <meta name="viewport" content="width=device-width,initial-scale=1" />
                 <meta name="description" content="${this.pages[page].description}" />
                 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/rockwillck/Lenoir@e13a0c6ef836db9ca97685b2bd8394aba478ebfc/Lenoir/lenoir.css" />
@@ -106,6 +107,13 @@ class Lenoir {
             <body>
                 ${fakeDoc.html.innerHTML}
                 <script>
+                window.addEventListener("scroll", (e) => {
+                    try {
+                        document.getElementsByClassName("bannerImg")[0].style.top = \`\$\{${this.pages[page].attachmentY} * 100 + (window.scrollY/window.innerHeight*(1 - ${this.pages[page].attachmentX}))*100*${this.pages[page].parallaxRate}\}%\`
+                    } catch (e) {
+
+                    }
+                })
                 nav = document.getElementsByClassName("nav")[0]
                 function updateNav() {
                     if (window.innerHeight > window.innerWidth) {
@@ -139,8 +147,8 @@ class Lenoir {
                 </script>
             </body>
             </html>`)
-            console.log(bakedDocs)
         }
+        console.log(bakedDocs)
 
         bakedDocs.forEach(function(string, index) {
             // Create a blob from the string content
@@ -209,6 +217,9 @@ class Page {
         this.sections = []
         this.heading = document.createElement("div")
         this.description = description
+        this.attachmentX = attachmentX
+        this.attachmentY = attachmentY
+        this.parallaxRate = parallaxRate
         switch(type) {
             case "hero":
             case "large":
