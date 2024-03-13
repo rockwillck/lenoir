@@ -41,7 +41,7 @@ class Lenoir {
         this.nav = document.createElement("div")
         let foldButton = document.createElement("button")
         foldButton.className = "foldButton"
-        foldButton.innerText = "✖"
+        foldButton.innerText = "×"
         this.nav.appendChild(foldButton)
         let openButton = document.createElement("button")
         openButton.className = "openButton"

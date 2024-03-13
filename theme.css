@@ -15,8 +15,8 @@ body {
 	color: white;
 }
 .banner > .bannerImg {
-	filter: invert() blur(5px) contrast(3) invert();
-	-webkit-filter: invert() blur(5px) contrast(3) invert();
+	filter: grayscale() invert() blur(5px) contrast(3) invert();
+	-webkit-filter: grayscale() invert() blur(5px) contrast(3) invert();
 }
 .hero {
 }
@@ -117,11 +117,10 @@ img {
 	.foldButton {
 		background-color: transparent;
 		font-size: 40px;
-		filter: drop-shadow(0 0 1px rgba(0, 0, 0, 1));
 		border: none;
 		font-weight: bold;
 		position: absolute;
-		right: -60px;
+		right: 10px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -139,7 +138,6 @@ img {
 		font-weight: bold;
 		top: 10px;
 		left: 10px;
-		border-radius: 10px;
 		color: white;
 	}
 }

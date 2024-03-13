@@ -12,16 +12,21 @@ function home() {
     let backgroundImgSrc = "https://i.pinimg.com/originals/3f/5d/85/3f5d85871b2eef01adf77c09b67f25f5.gif"
     let landing = new Page("Lenoir, a modern webkit.", headingContent, "hero", backgroundImgSrc, 0.5, 0)
 
-    ultra(landing, LenoirPrebuilts.header("The Internet", 2))
-    ultra(landing, LenoirPrebuilts.imageTextPair("https://i.ibb.co/jk8X6Rd/http-info-cern-ch.jpg", "When the Internet was first invented, websites looked like this. Plain, simple, and really ugly.", "Old internet screenshot"))
     ultra(landing, LenoirPrebuilts.verticalSpacer(100))
-    ultra(landing, LenoirPrebuilts.imageTextPair("https://i.ytimg.com/vi/v1jlkKfwHm8/maxresdefault.jpg", "Now, it looks like this. Beautiful and modern, yet startlingly complex and a nightmare to upkeep.", "New internet screenshot", 1))
+    ultra(landing, LenoirPrebuilts.image("https://www.linakis.com/-/media/linakisdigital/images/blog/ancient_aliweb.jpeg?la=en&hash=4B59CFE09B144A18C906828FDC64C4AE8ADBEB92", "Old internet screenshot", 6, 14))
+    ultra(landing, LenoirPrebuilts.monologue(["This is what the internet used to be."], 8, 10, "center"))
+    ultra(landing, LenoirPrebuilts.verticalSpacer(100))
+    ultra(landing, LenoirPrebuilts.image("https://i.ytimg.com/vi/v1jlkKfwHm8/maxresdefault.jpg", "Mew internet screenshot", 6, 14))
+    ultra(landing, LenoirPrebuilts.monologue(["This is what the internet is today."], 8, 10, "center"))
+    ultra(landing, LenoirPrebuilts.verticalSpacer(100))
+    ultra(landing, LenoirPrebuilts.header("The Problem", 2))
+    ultra(landing, LenoirPrebuilts.monologue(["The modern web is complex. Not just on the backend, where new technologies \"revolutionize\" the field every day, but on the front end, where the end user expects increasingly more aesthetic and impressive experiences.", "Building websites is now an art, and tools like React, Vue, Bootstrap, and others are your brushes.", "But many of these brushes add bloat to your sites, require backends, are simply overkill for a simple site, or take more effort than the problem they're trying to solve."], 8, 10, "center"))
     ultra(landing, LenoirPrebuilts.verticalSpacer(100))
     ultra(landing, LenoirPrebuilts.header("Meet... Lenoir", 2))
-    ultra(landing, LenoirPrebuilts.monologue(["A simple, highly customizable, abstracted web development toolkit that helps you build out static sites as quickly and efficiently as possible.", "Lenoir is highly opinionated while still giving you complete creative freedom, making sure your sites are both beautiful and your own.", "And unlike other more complex libraries, Lenoir creates semantic, readable HTML."], 8, 10, "center"))
+    ultra(landing, LenoirPrebuilts.monologue(["A simple, highly customizable, abstracted web development toolkit that helps you build out static sites as quickly and efficiently as possible.", "Lenoir is highly opinionated while still giving you complete creative freedom, making sure your sites are both beautiful and your own.", "And unlike other more complex libraries, Lenoir creates semantic, readable HTML.", "No learning a new language, no learning a new format. Lenoir relies on familiar UI elements to make creating easier for you."], 8, 10, "center"))
     ultra(landing, LenoirPrebuilts.verticalSpacer(100))
     ultra(landing, LenoirPrebuilts.header("Features", 2))
-    ultra(landing, LenoirPrebuilts.monologue(["Baking static site files", "Full customizability", "Built-in navigation features"], 8, 10, "center"))
+    ultra(landing, LenoirPrebuilts.monologue(["-Baking-\n\nWhile Lenoir sites can be generated when your site loads (like this one), you can also \"bake\" your sites. Lenoir will generate HTML files for you to download, which contain all of your content with none of the javascript.", "-Full CSS and JS-\n\nLenoir is just a layer on top of your site: you still have full access to the CSS and JS you need. In many ways, Lenoir acts more like a content library than a website generation framework, hence why it's called a webkit.", "-Responsive-\n\nSites generated with Lenoir are, from the very beginning, completely responsive for mobile and desktop.", "-Accessibility-\n\nLenoir has built-in accessibility features, and reminds you to make your site accessible. If you follow Lenoir's guide, your site will contribute to a modern, accessible web.", "-Navigation-\n\nIt seems silly to call it a feature, but Lenoir saves you a lot of time by natively and naturally providing navbars for your site. They're responsive, dynamic, and just as easy to style as any other element."], 8, 10, "center"))
     ultra(landing, LenoirPrebuilts.verticalSpacer(100))
     ultra(landing, LenoirPrebuilts.header("Source Code", 2))
     ultra(landing, LenoirPrebuilts.link("https://github.com/rockwillck/Lenoir", "https://github.com/rockwillck/lenoir"))
@@ -54,7 +59,7 @@ function home() {
     headingContent.appendPart(title)
     headingContent.compile()
 
-    let backgroundImgSrc = "https://images.unsplash.com/photo-1682685797366-715d29e33f9d?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    let backgroundImgSrc = "https://images.unsplash.com/photo-1708844897353-649da595a3f2?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     let landing = new Page("Lenoir, a modern webkit.", headingContent, "hero", backgroundImgSrc, 0.5, 0)
 
     ultra(landing, LenoirPrebuilts.header("Hello World", 2))
@@ -91,7 +96,7 @@ headingContent.compile()
 \`\`\`
 We then "append" the part to the heading Section. The second line, \`headingContent.compile()\`, is important. Until a section is *compiled*, you **cannot** use it. If you add a section to the page before compiling, nothing will be added.
 \`\`\`javascript
-let backgroundImgSrc = "https://images.unsplash.com/photo-1682685797366-715d29e33f9d?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+let backgroundImgSrc = "https://images.unsplash.com/photo-1708844897353-649da595a3f2?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 let landing = new Page("Lenoir, a modern webkit.", headingContent, "hero", backgroundImgSrc, 0.5, 0)
 \`\`\`
 The first line here just declares the \`backgroundImgSrc\` variable, no Lenoir magic there. The next line finally creates the page. The arguments for the page are: \`new Page(description, heading_section, heading_type, ...background)\`. The four heading types are: \`hero\`, \`large\`, \`small\`, and \`title\`. The first three require a background image and attachment positions (the \`0.5\` and \`0\`, where the first 0 is attaching the image completely to the left and 1 is to the right, and likewise for top and bottom). A title is just a large header.
@@ -113,8 +118,7 @@ Lenoir.registerPage("Home", landing, "index.html")
 \`\`\`
 This line does what it says: it registers tha page (\`landing\`) with the title \`Home\` at the url \`index.html\` (specifically, domain.name/index.html, but that's handled by modern HTML renderers).
 I contained all that code in a \`home()\` method, but that's moreso convention that requirement.
-\`
-Lenoir.load("Hello World")\` just initializes the whole website.`, "left"))
+\`Lenoir.load("Hello World")\` just initializes the whole website.`, "left"))
     quickstart.appendPart(quickstartContent)
     quickstart.compile()
     docs.appendSection(quickstart)

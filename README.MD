@@ -69,13 +69,13 @@ headingContent.compile()
 ```
 We then "append" the part to the heading Section. The second line, `headingContent.compile()`, is important. Until a section is *compiled*, you **cannot** use it. If you add a section to the page before compiling, nothing will be added.
 ```javascript
-let backgroundImgSrc = "https://images.unsplash.com/photo-1682685797366-715d29e33f9d?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+let backgroundImgSrc = "https://images.unsplash.com/photo-1708844897353-649da595a3f2?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 let landing = new Page("Lenoir, a modern webkit.", headingContent, "hero", backgroundImgSrc, 0.5, 0)
 ```
 The first line here just declares the `backgroundImgSrc` variable, no Lenoir magic there. The next line finally creates the page. The arguments for the page are: `new Page(description, heading_section, heading_type, ...background)`. The four heading types are: `hero`, `large`, `small`, and `title`. The first three require a background image and attachment positions (the `0.5` and `0`, where the first 0 is attaching the image completely to the left and 1 is to the right, and likewise for top and bottom). A title is just a large header.
 ```javascript
 ultra(landing, LenoirPrebuilts.header("Hello World", 2))
-ultra(landing, LenoirPrebuilts.imageTextPair("https://images.unsplash.com/photo-1709318305042-16d0b74554d1?q=80&w=2456&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "This is your very first site!"))
+ultra(landing, LenoirPrebuilts.imageTextPair("https://images.unsplash.com/photo-1708844897353-649da595a3f2?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "This is your very first site!"))
 ultra(landing, LenoirPrebuilts.verticalSpacer(100))
 ```
 There are two important concepts in these lines: the `ultra` function and the `LenoirPrebuilts` class.  

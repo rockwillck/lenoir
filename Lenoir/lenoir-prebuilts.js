@@ -16,6 +16,14 @@ class LenoirPrebuilts {
         return section
     }
 
+    static image(imageUrl, imageAlt, left=2, width=LenoirAssistant.sections - 4) {
+        let section = new Section()
+        let part = new Part(left, width)
+        part.appendComponent(new Component("image", imageUrl, imageAlt))
+        section.appendPart(part)
+        return section
+    }
+
     static verticalSpacer(height) {
         let section = new Section("top")
         let part = new Part(1, 1)
