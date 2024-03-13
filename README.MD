@@ -1,5 +1,7 @@
 # Lenoir
 A modern, concise web development toolkit
+## A (Very) Brief History
+Lenoir is named after the first engine with a sparkplug. Lenoir was created for use by my web development agency, Sparkplug.Page. I am clever. Lenoir was written in a weekend and is currently being expanded, with documentation being... appropriately procrastinated upon. Cheers!  
 ## Features
 - Baking: Instead of dynamically generating content every time your site loads, you can "bake" your files and generate them just once.
 - Customizable themes: Lenoir's styling is just a base style sheet, which can be overriden, added to, and extended.
