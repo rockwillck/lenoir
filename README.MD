@@ -99,7 +99,27 @@ I contained all that code in a `home()` method, but that's moreso convention tha
 - [ ] Button component
 - [x] Markdown component
 - [ ] Full Documentation
-- [ ] More themes
+    - [x] Quickstart
+    - [ ] Full dynamic site
+    - [ ] Baking
+    - [ ] Theming
+    - [ ] Lenoir Class
+    - [ ] LenoirExtensions
+        - [ ] Class
+        - [ ] Core extensions
+        - [ ] Writing extensions
+    - [ ] Page Class
+    - [ ] Section Class
+    - [ ] Part Class
+    - [ ] Component Class
+    - [ ] LenoirPrebuilts Class
+- [ ] Themes
+    - [x] Default
+    - [x] Notebook
+    - [ ] Glass
+    - [ ] Neumorph
+    - [ ] Pop
+- [ ] Subpages
 ## View Live
 A demo site (and in-construction documentation) is available [here](https://www.rockwill.dev/lenoir).
 ## License
