@@ -100,7 +100,7 @@ class Lenoir {
                 <title>${page}</title>
                 <meta name="viewport" content="width=device-width,initial-scale=1" />
                 <meta name="description" content="${this.pages[page].description}" />
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/rockwillck/Lenoir@e13a0c6ef836db9ca97685b2bd8394aba478ebfc/Lenoir/lenoir.css" />
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/rockwillck/Lenoir@cacd349bec3db0924aa65ffb6d3cfa5a319e5e79/Lenoir/lenoir.css" />
                 <link rel="stylesheet" type="text/css" href="theme.css" />
                 <link rel="icon" href="${favicon}">
             </head>
