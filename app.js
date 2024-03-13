@@ -29,7 +29,7 @@ function home() {
     ultra(landing, LenoirPrebuilts.monologue(["-Baking-\n\nWhile Lenoir sites can be generated when your site loads (like this one), you can also \"bake\" your sites. Lenoir will generate HTML files for you to download, which contain all of your content with none of the javascript.", "-Full CSS and JS-\n\nLenoir is just a layer on top of your site: you still have full access to the CSS and JS you need. In many ways, Lenoir acts more like a content library than a website generation framework, hence why it's called a webkit.", "-Responsive-\n\nSites generated with Lenoir are, from the very beginning, completely responsive for mobile and desktop.", "-Accessibility-\n\nLenoir has built-in accessibility features, and reminds you to make your site accessible. If you follow Lenoir's guide, your site will contribute to a modern, accessible web.", "-Navigation-\n\nIt seems silly to call it a feature, but Lenoir saves you a lot of time by natively and naturally providing navbars for your site. They're responsive, dynamic, and just as easy to style as any other element."], 8, 10, "center"))
     ultra(landing, LenoirPrebuilts.verticalSpacer(100))
     ultra(landing, LenoirPrebuilts.header("Source Code", 2))
-    ultra(landing, LenoirPrebuilts.link("https://github.com/rockwillck/Lenoir", "https://github.com/rockwillck/lenoir"))
+    ultra(landing, LenoirPrebuilts.link("https://github.com/rockwillck/lenoir", "https://github.com/rockwillck/lenoir"))
     ultra(landing, LenoirPrebuilts.verticalSpacer(50))
 
     Lenoir.registerPage("Home", landing, "index.html")
