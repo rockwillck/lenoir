@@ -105,7 +105,7 @@ This software is licensed under the Bok Choy General Software License. The full 
 ```
 Bok Choy General Software License
 
-Copyright (c) [year] [fullname]
+Copyright (c) 2024 William Choi-Kim
 
 This software and associated files (the "Software") may be used commercially, privately, and publicly. The Software may be modified in any way, without limitation. It may be distributed free of charge as is, but not distributed commerically without modifications to its functionality. Any distributed version of the Software must provide attribution to the Software in some way. Any distributed copy of the Software must abide by and include this license. The user is free to use, modify, and distribute the software under the aforementioned conditions.
 
