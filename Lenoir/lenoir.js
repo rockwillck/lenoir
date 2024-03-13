@@ -12,6 +12,7 @@ class Lenoir {
     static ids = {}
     static urls = {}
     static nav
+    static name
     static setSections(sections) {
         LenoirAssistant.sections = sections
     }
@@ -25,6 +26,7 @@ class Lenoir {
         this.navSettings.opaque = opaque
     }
     static load(name, doc=document.body) {
+        this.name = name
         this.nav = document.createElement("div")
         let foldButton = document.createElement("button")
         foldButton.className = "foldButton"
@@ -35,12 +37,12 @@ class Lenoir {
         openButton.innerText = "☰"
         doc.appendChild(openButton)
         foldButton.onclick = (e) => {
-            this.nav.style.translate = "-100vw 0"
-            openButton.style.translate = "0 0"
-        }
-        openButton.onclick = (e) => {
             this.nav.style.translate = ""
             openButton.style.translate = ""
+        }
+        openButton.onclick = (e) => {
+            this.nav.style.translate = "0 0"
+            openButton.style.translate = "-10vw 0"
         }
         let siteName = document.createElement("div")
         siteName.className = "siteName"
@@ -75,16 +77,16 @@ class Lenoir {
         })
     }
 
-    static bake() {
+    static bake(name=this.name) {
         let bakedDocs = []
         for (let page of Object.keys(this.pages)){
             let fakeDoc = new MockDocument()
-            this.load(page, fakeDoc)
+            this.load(name, fakeDoc)
             bakedDocs.push(`<!DOCTYPE html>
             <html lang="en">
             <head>
                 <meta charset="UTF-8" />
-                <title>${page}</title>
+                <title>${name}</title>
                 <meta name="viewport" content="width=device-width,initial-scale=1" />
                 <meta name="description" content="${this.pages[page].description}" />
                 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/rockwillck/Lenoir@acce9c1e8a8fd53839cce69da26db11cac94767d/Lenoir/lenoir.css" />
@@ -93,6 +95,38 @@ class Lenoir {
             </head>
             <body>
                 ${fakeDoc.html.innerHTML}
+                <script>
+                nav = document.getElementsByClassName("nav")[0]
+                function updateNav() {
+                    if (window.innerHeight > window.innerWidth) {
+                        nav.className = "nav verticalNav"
+                    } else {
+                        nav.style.translate = "0"
+                        if (window.scrollY/window.innerHeight > 0.1) {
+                            nav.className = "nav scrolledNav"
+                        } else {
+                            nav.className = "nav unscrolledNav"
+                        }
+                    }
+                }
+                updateNav()
+                window.addEventListener("scroll", (e) => {
+                    updateNav()
+                })
+                window.addEventListener("resize", (e) => {
+                    updateNav()
+                })
+                foldButton = document.getElementsByClassName("foldButton")[0]
+                openButton = document.getElementsByClassName("openButton")[0]
+                foldButton.onclick = (e) => {
+                    nav.style.translate = ""
+                    openButton.style.translate = ""
+                }
+                openButton.onclick = (e) => {
+                    nav.style.translate = "0 0"
+                    openButton.style.translate = "-10vw 0"
+                }
+                </script>
             </body>
             </html>`)
         }
@@ -180,6 +214,7 @@ class Page {
                 window.addEventListener("scroll", (e) => {
                     this.banner.style.top = `${attachmentY * 100 + (window.scrollY/window.innerHeight*(1 - attachmentY))*100*parallaxRate}%`
                 })
+                section.div.style.backgroundColor = "transparent"
                 break
             default:
                 this.heading.className = "heading title"

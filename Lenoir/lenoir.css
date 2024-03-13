@@ -138,13 +138,14 @@ h1, h2, h3, h4, h5, h6 {
 	.nav {
 		flex-direction: column;
 		height: 100vh;
+		translate: -100vw 0;
 	}
 
 	.foldButton {
 	}
 
 	.openButton {
-		translate: -10vw 0;
+		translate: 0 0;
 		transition: 0.22s;
 		z-index: 3;
 	}

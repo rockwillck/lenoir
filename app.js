@@ -5,11 +5,11 @@ function home() {
     let headingContent = new Section()
     let title = new Part(12, 2)
     title.appendComponent(new Component("header", "Lenoir", 1))
-    title.appendComponent(new Component("text", "The Easy Site Maker"))
+    title.appendComponent(new Component("text", "The Easy Site Maker", "center"))
     headingContent.appendPart(title)
     headingContent.compile()
 
-    let backgroundImgSrc = "https://images.unsplash.com/photo-1564730465543-e732e7fc9c10?q=80&w=2886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    let backgroundImgSrc = "https://i.pinimg.com/originals/3f/5d/85/3f5d85871b2eef01adf77c09b67f25f5.gif"
     let landing = new Page("Lenoir, a modern webkit.", headingContent, "hero", backgroundImgSrc, 0.5, 0)
 
     ultra(landing, LenoirPrebuilts.header("The Internet", 2))
@@ -32,3 +32,4 @@ function home() {
 home()
 
 Lenoir.load("Lenoir")
+// Lenoir.bake("Lenoir")

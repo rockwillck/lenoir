@@ -24,10 +24,10 @@ class LenoirPrebuilts {
         return section
     }
 
-    static header(text, weight=1) {
+    static header(text, weight=1, align="center") {
         let section = new Section()
         let head = new Part(Math.floor(LenoirAssistant.sections/2) - 1, 2)
-        head.appendComponent(new Component("header", text, weight))
+        head.appendComponent(new Component("header", text, weight, align))
         section.appendPart(head)
         return section
     }
