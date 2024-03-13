@@ -12,7 +12,8 @@ class Lenoir {
     static ids = {}
     static urls = {}
     static nav
-    static name
+    static name = ""
+    static favicon = "https://i.ibb.co/z2yM7D9/ICO-to-PNG-Converter.png"
     static setSections(sections) {
         LenoirAssistant.sections = sections
     }
@@ -25,8 +26,17 @@ class Lenoir {
         this.navSettings.color = color
         this.navSettings.opaque = opaque
     }
-    static load(name, doc=document.body) {
+    static load(name, favicon="https://i.ibb.co/z2yM7D9/ICO-to-PNG-Converter.png", faviconInNav=true, doc=document.body) {
         this.name = name
+        this.favicon = favicon
+        let faviconLink = document.querySelector("link[rel~='icon']");
+        if (!faviconLink) {
+            faviconLink = document.createElement('link');
+            faviconLink.rel = 'icon';
+            document.head.appendChild(faviconLink);
+        }
+        faviconLink.href = favicon;
+        this.faviconInNav = faviconInNav
         this.nav = document.createElement("div")
         let foldButton = document.createElement("button")
         foldButton.className = "foldButton"
@@ -46,7 +56,7 @@ class Lenoir {
         }
         let siteName = document.createElement("div")
         siteName.className = "siteName"
-        siteName.innerText = name
+        siteName.innerHTML = `<img src="${favicon}" class="navIcon">${this.name}`
         this.nav.appendChild(siteName)
         let links = document.createElement("div")
         links.className = "links"
@@ -77,11 +87,11 @@ class Lenoir {
         })
     }
 
-    static bake(name=this.name) {
+    static bake(name=this.name, favicon=this.favicon, faviconInNav=this.faviconInNav) {
         let bakedDocs = []
         for (let page of Object.keys(this.pages)){
             let fakeDoc = new MockDocument()
-            this.load(name, fakeDoc)
+            this.load(name, favicon, faviconInNav, fakeDoc)
             bakedDocs.push(`<!DOCTYPE html>
             <html lang="en">
             <head>
@@ -89,9 +99,9 @@ class Lenoir {
                 <title>${name}</title>
                 <meta name="viewport" content="width=device-width,initial-scale=1" />
                 <meta name="description" content="${this.pages[page].description}" />
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/rockwillck/Lenoir@acce9c1e8a8fd53839cce69da26db11cac94767d/Lenoir/lenoir.css" />
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/rockwillck/Lenoir@920352cba32ca23cdcb014f1e2e3cf29339b5aaf/Lenoir/lenoir.css" />
                 <link rel="stylesheet" type="text/css" href="theme.css" />
-                <link rel="icon" href="">
+                <link rel="icon" href="${favicon}">
             </head>
             <body>
                 ${fakeDoc.html.innerHTML}
@@ -129,6 +139,7 @@ class Lenoir {
                 </script>
             </body>
             </html>`)
+            console.log(bakedDocs)
         }
 
         bakedDocs.forEach(function(string, index) {

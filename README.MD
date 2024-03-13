@@ -93,7 +93,7 @@ I contained all that code in a `home()` method, but that's moreso convention tha
 ## Roadmap
 - [x] Core library
 - [x] Baking
-- [ ] Favicons
+- [x] Favicons
 - [ ] Button component
 - [ ] Full Documentation
 - [ ] More themes

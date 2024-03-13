@@ -76,6 +76,13 @@ img {
 
 .nav {
 }
+.navIcon {
+	filter: invert();
+	-webkit-filter: invert();
+	margin-right: 10px;
+	width: 20px;
+	height: 20px;
+}
 .siteName {
 	padding: 5px;
 }

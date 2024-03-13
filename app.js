@@ -24,7 +24,7 @@ function home() {
     ultra(landing, LenoirPrebuilts.monologue(["Baking static site files", "Full customizability", "Built-in navigation features"], 8, 10, "center"))
     ultra(landing, LenoirPrebuilts.verticalSpacer(100))
     ultra(landing, LenoirPrebuilts.header("Source Code", 2))
-    ultra(landing, LenoirPrebuilts.link("https://github.com/rockwillck/Lenoir", "https://github.com/rockwillck/Lenoir"))
+    ultra(landing, LenoirPrebuilts.link("https://github.com/rockwillck/Lenoir", "https://github.com/rockwillck/lenoir"))
     ultra(landing, LenoirPrebuilts.verticalSpacer(50))
 
     Lenoir.registerPage("Home", landing, "index.html")

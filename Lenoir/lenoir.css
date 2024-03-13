@@ -107,6 +107,10 @@ h1, h2, h3, h4, h5, h6 {
 	translate: 0 0;
 	transition: 0.2s;
 }
+.siteName {
+	display: flex;
+	align-items: center;
+}
 .links {
 	flex: 1;
 	display: flex;
@@ -120,6 +124,7 @@ h1, h2, h3, h4, h5, h6 {
 	.nav {
 		flex-direction: row;
 		width: 100vw;
+		align-items: center;
 	}
 	.links {
 		justify-content: end;
