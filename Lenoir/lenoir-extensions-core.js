@@ -45,7 +45,6 @@ function mdrenderer(args) {
     const result = document.createElement('div');
     result.className = "markdown"
     result.style.textAlign = args.length > 1 ? args[1] : "center"
-    let currentElement = result;
 
     let boldRegex = /\*\*(.*?)\*\*/g;
     let italicRegex = /\*(.*?)\*/g;
@@ -60,7 +59,6 @@ function mdrenderer(args) {
     markdown = markdown.replace(codeBlockRegex, (_, language, code) => {
         return `<pre><code class="${language}">${code}</code></pre>`
     });
-    console.log(markdown)
 
     // Replace bold, italic, and inline code
     markdown = markdown.replace(boldRegex, boldReplace)

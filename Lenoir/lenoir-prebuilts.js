@@ -57,6 +57,14 @@ class LenoirPrebuilts {
         section.appendPart(part)
         return section
     }
+
+    static markdown(text, left, width, align="center") {
+        let section = new Section()
+        let md = new Part(left, width)
+        md.appendComponent(new Component("markdown", text, align))
+        section.appendPart(md)
+        return section
+    }
 }
 
 function ultra(page, section) {
