@@ -99,7 +99,7 @@ class Lenoir {
                 <title>${name}</title>
                 <meta name="viewport" content="width=device-width,initial-scale=1" />
                 <meta name="description" content="${this.pages[page].description}" />
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/rockwillck/Lenoir@920352cba32ca23cdcb014f1e2e3cf29339b5aaf/Lenoir/lenoir.css" />
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/rockwillck/Lenoir@e13a0c6ef836db9ca97685b2bd8394aba478ebfc/Lenoir/lenoir.css" />
                 <link rel="stylesheet" type="text/css" href="theme.css" />
                 <link rel="icon" href="${favicon}">
             </head>
