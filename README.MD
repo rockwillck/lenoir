@@ -95,6 +95,7 @@ I contained all that code in a `home()` method, but that's moreso convention tha
 - [x] Baking
 - [x] Favicons
 - [ ] Button component
+- [x] Markdown component
 - [ ] Full Documentation
 - [ ] More themes
 ## View Live
