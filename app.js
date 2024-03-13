@@ -5,7 +5,7 @@ function home() {
     let headingContent = new Section()
     let title = new Part(10, 6)
     title.appendComponent(new Component("header", "Lenoir", 1))
-    title.appendComponent(new Component("text", "The Easy Site Maker", "center"))
+    title.appendComponent(new Component("text", "A Modern Webkit", "center"))
     headingContent.appendPart(title)
     headingContent.compile()
 
@@ -39,7 +39,7 @@ function documentation() {
     headingContent.appendPart(title)
     headingContent.compile()
 
-    let docs = new Page("Lenoir, a modern webkit.", headingContent, "title")
+    let docs = new Page("Documentation for Lenoir", headingContent, "title")
 
     ultra(docs, LenoirPrebuilts.header("Quickstart", 2))
     let quickstart = new Section()
