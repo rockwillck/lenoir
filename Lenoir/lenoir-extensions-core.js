@@ -17,7 +17,7 @@ LenoirExtensions.registerComponentType("header", heading)
 
 function spacing(height) {
     let s = document.createElement("div")
-    s.style.height = `${height[0]}px`
+    s.style.height = `${height[0]/LenoirAssistant.sections*100}vw`
     return s
 }
 LenoirExtensions.registerComponentType("spacer", spacing)

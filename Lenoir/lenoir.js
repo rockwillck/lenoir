@@ -57,7 +57,11 @@ class Lenoir {
         }
         let siteName = document.createElement("div")
         siteName.className = "siteName"
-        siteName.innerHTML = `<img src="${favicon}" class="navIcon">${this.name}`
+        if (faviconInNav) {
+            siteName.innerHTML = `<img src="${favicon}" class="navIcon">${this.name}`
+        } else {
+            siteName.innerText = this.name
+        }
         this.nav.appendChild(siteName)
         let links = document.createElement("div")
         links.className = "links"
@@ -119,7 +123,6 @@ class Lenoir {
                     if (window.innerHeight > window.innerWidth) {
                         nav.className = "nav verticalNav"
                     } else {
-                        nav.style.translate = "0"
                         if (window.scrollY/window.innerHeight > 0.1) {
                             nav.className = "nav scrolledNav"
                         } else {
@@ -202,7 +205,6 @@ class LenoirAssistant {
         if (window.innerHeight > window.innerWidth) {
             Lenoir.nav.className = "nav verticalNav"
         } else {
-            Lenoir.nav.style.translate = "0"
             if (window.scrollY/window.innerHeight > 0.1) {
                 Lenoir.nav.className = "nav scrolledNav"
             } else {

@@ -124,6 +124,9 @@ h1, h2, h3, h4, h5, h6 {
 .openButton {
 	position: fixed;
 }
+.foldButton {
+	position: absolute;
+}
 @media (orientation:landscape) {
 	.nav {
 		flex-direction: row;
@@ -151,11 +154,11 @@ h1, h2, h3, h4, h5, h6 {
 	}
 
 	.foldButton {
+		transition: 0.2s;
 	}
 
 	.openButton {
-		translate: 0 0;
-		transition: 0.22s;
+		transition: 0.2s;
 		z-index: 3;
 	}
 }
