@@ -145,7 +145,7 @@ class Lenoir {
                 }
                 openButton.onclick = (e) => {
                     nav.style.translate = "0 0"
-                    openButton.style.translate = "-10vw 0"
+                    openButton.style.translate = "-100vw 0"
                 }
                 </script>
             </body>
