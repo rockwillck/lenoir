@@ -116,7 +116,7 @@ I contained all that code in a `home()` method, but that's moreso convention tha
 - [ ] Themes
     - [x] Default
     - [x] Notebook
-    - [ ] Glass
+    - [x] Glass
     - [ ] Neumorph
     - [ ] Pop
 - [ ] Subpages
