@@ -53,7 +53,7 @@ class Lenoir {
         }
         openButton.onclick = (e) => {
             this.nav.style.translate = "0 0"
-            openButton.style.translate = "-10vw 0"
+            openButton.style.translate = "-100vw 0"
         }
         let siteName = document.createElement("div")
         siteName.className = "siteName"
