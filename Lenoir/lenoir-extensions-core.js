@@ -39,6 +39,13 @@ function link(src) {
 }
 LenoirExtensions.registerComponentType("link", link)
 
+function raw(args) {
+    let div = document.createElement("div")
+    div.innerHTML = args[0]
+    return div
+}
+LenoirExtensions.registerComponentType("raw", raw)
+
 function mdrenderer(args) {
     markdown = args[0]
     markdown = markdown.split("\n").map((x) => x.trim()).join("\n")
