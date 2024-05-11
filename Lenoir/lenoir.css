@@ -161,6 +161,9 @@ h1, h2, h3, h4, h5, h6 {
 		transition: 0.2s;
 		z-index: 3;
 	}
+	.part {
+		width: 90% !important;
+	}
 }
 
 code {
