@@ -89,7 +89,7 @@ This may not seem like a lot, but with enough sections on enough pages, it adds 
 ```javascript
 Lenoir.registerPage("Home", landing, "index.html")
 ```
-This line does what it says: it registers tha page (`landing`) with the title `Home` at the url `index.html` (specifically, domain.name/index.html, but that's handled by modern HTML renderers).
+This line does what it says: it registers the page (`landing`) with the title `Home` at the url `index.html` (specifically, domain.name/index.html, but that's handled by modern browsers).
 I contained all that code in a `home()` method, but that's moreso convention that requirement.
 `Lenoir.load("Hello World")` just initializes the whole website.
 ## Roadmap
