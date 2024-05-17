@@ -1,17 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Madimi+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 body {
-	font-family: "Madimi One", sans-serif;
+	font-family: "Montserrat Alternates", sans-serif;
 	font-weight: 400;
 	font-style: normal;
 	font-size: max(16px, 2vmin);
+	/* color: white; */
 }
 
 .heading {
 }
 
 .banner {
+	color: white;
 }
 .banner > .bannerImg {
+    filter: grayscale() invert() blur(5px) contrast(3) invert();
+	-webkit-filter: grayscale() invert() blur(5px) contrast(3) invert();
 }
 .hero {
 }
@@ -47,14 +52,8 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	padding: 20px;
-	margin-bottom: 20px;
+	padding: 30px;
 	box-sizing: border-box;
-	background-color: white;
-	border-radius: 10px;
-	box-shadow: 10px 10px 0px black;
-	border: solid;
-	border-width: 2px;
 }
 
 h1 {
@@ -67,19 +66,17 @@ h3 {
 	font-size: max(18px, 3vmin);
 }
 
-img:not(.navIcon) {
+img {
 	border-radius: 10px;
-	box-shadow: 10px 10px 0px black;
-	border: solid;
-	border-width: 2px;
+	box-shadow: 0 0 10px rgb(0, 0, 0, .25);
 }
 
 .nav {
-	background-color: white !important;
-	color: black !important;
-	border-width: 2px;
+	background-color: black;
 }
 .navIcon {
+	filter: invert();
+	-webkit-filter: invert();
 	margin-right: 10px;
 	width: 20px;
 	height: 20px;
@@ -99,19 +96,13 @@ img:not(.navIcon) {
 	transition: 0.2s;
 	border-radius: 10px;
 	padding: 10px !important;
-	border: solid;
 }
 .siteLink:hover {
-	border-color: black;
-	background-color: black;
-	color: white;
+	font-weight: 500;
 }
 .siteLink:active {
 }
 @media (orientation:landscape) {
-	.nav {
-		border-bottom: solid;
-	}
 	.siteLink {
 		margin: 0px 0px 0px 10px;
 		padding: 5px;
@@ -119,9 +110,6 @@ img:not(.navIcon) {
 	
 }
 @media (orientation:portrait) {
-	.nav {
-		border-right: solid;
-	}
 	.siteLink {
 		margin-top: 10px;
 		padding: 5px;
@@ -137,10 +125,12 @@ img:not(.navIcon) {
 		justify-content: center;
 		align-items: center;
 		border-radius: 10px;
+		color: white;
 	}
 	.openButton {
 		background-color: transparent;
 		font-size: 40px;
+		filter: drop-shadow(0 0 1px rgba(0, 0, 0, 1));
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -148,7 +138,7 @@ img:not(.navIcon) {
 		font-weight: bold;
 		top: 10px;
 		left: 10px;
-		color: black;
+		color: white;
 	}
 }
 
@@ -176,20 +166,13 @@ p {
 	border-radius: 10px;
 }
 a {
-	color: black;
-	padding: 20px;
-	box-sizing: border-box;
 }
 
-pre, .btn {
-	background-color: white;
-	border:solid;
-	border-width: 2px;
-	box-shadow: 10px 10px 0px black;
+pre {
+	background-color: gainsboro;
 	padding: 10px;
 	box-sizing: border-box;
 	border-radius: 10px;
-    border-color: black;
 }
 
 code {
@@ -197,12 +180,19 @@ code {
 }
 
 .btn {
+	background: linear-gradient(30deg, black, black 50%, white 50%, white);
+    background-size: 300%;
+    background-position: 100%;
+	color: black;
+	border: solid;
+    border-color: black;
+	padding: 10px;
     transition: 0.2s;
 }
 .btn:hover {
-	box-shadow: 5px 5px 0px black;
+    background-position: 70%;
 }
 .btn:active {
-    background-color: black;
+    background-position: 0%;
     color: white;
 }
