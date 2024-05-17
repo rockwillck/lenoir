@@ -15,8 +15,6 @@ body {
 	color: white;
 }
 .banner > .bannerImg {
-	filter: grayscale() invert() blur(5px) contrast(3) invert();
-	-webkit-filter: grayscale() invert() blur(5px) contrast(3) invert();
 }
 .hero {
 }
@@ -177,4 +175,22 @@ pre {
 
 code {
 	color: rgb(86, 86, 86);
+}
+
+button {
+	background: linear-gradient(30deg, black, black 50%, white 50%, white);
+    background-size: 300%;
+    background-position: 100%;
+	color: black;
+	border: solid;
+    border-color: black;
+	padding: 10px;
+    transition: 0.2s;
+}
+button:hover {
+    background-position: 70%;
+}
+button:active {
+    background-position: 0%;
+    color: white;
 }

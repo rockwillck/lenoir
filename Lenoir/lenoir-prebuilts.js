@@ -50,9 +50,9 @@ class LenoirPrebuilts {
         return section
     }
 
-    static link(text, src) {
+    static link(text, src, left, width) {
         let section = new Section()
-        let part = new Part(8, 10)
+        let part = new Part(left, width)
         part.appendComponent(new Component("link", text, src))
         section.appendPart(part)
         return section
@@ -63,6 +63,14 @@ class LenoirPrebuilts {
         let md = new Part(left, width)
         md.appendComponent(new Component("markdown", text, align))
         section.appendPart(md)
+        return section
+    }
+
+    static button(text, action, left, width) {
+        let section = new Section()
+        let part = new Part(left, width)
+        part.appendComponent(new Component("button", text, action))
+        section.appendPart(part)
         return section
     }
 }

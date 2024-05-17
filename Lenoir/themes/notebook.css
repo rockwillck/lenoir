@@ -181,7 +181,7 @@ a {
 	box-sizing: border-box;
 }
 
-pre {
+pre, button {
 	background-color: white;
 	border:solid;
 	border-width: 2px;
@@ -189,8 +189,20 @@ pre {
 	padding: 10px;
 	box-sizing: border-box;
 	border-radius: 10px;
+    border-color: black;
 }
 
 code {
 	color: rgb(86, 86, 86);
+}
+
+button {
+    transition: 0.2s;
+}
+button:hover {
+	box-shadow: 5px 5px 0px black;
+}
+button:active {
+    background-color: black;
+    color: white;
 }

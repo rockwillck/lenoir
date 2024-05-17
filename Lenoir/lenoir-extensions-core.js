@@ -77,3 +77,11 @@ function mdrenderer(args) {
     return result;
 }
 LenoirExtensions.registerComponentType("markdown", mdrenderer)
+
+function button(args) {
+    let btn = document.createElement("button")
+    btn.innerText = args[0]
+    btn.onclick = args[1]
+    return btn
+}
+LenoirExtensions.registerComponentType("button", button)

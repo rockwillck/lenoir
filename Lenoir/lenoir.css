@@ -132,6 +132,10 @@ h1, h2, h3, h4, h5, h6 {
 		flex-direction: row;
 		width: 100vw;
 		align-items: center;
+		height: 60px;
+	}
+	body {
+		padding-top: 57px;
 	}
 	.links {
 		justify-content: end;
@@ -181,4 +185,10 @@ pre {
     white-space: -pre-wrap;      /* Opera 4-6 */
     white-space: -o-pre-wrap;    /* Opera 7 */
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+button {
+	width: 100%;
+	font-family: inherit;
+	font-size: inherit;
 }
