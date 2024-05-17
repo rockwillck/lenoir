@@ -80,6 +80,7 @@ LenoirExtensions.registerComponentType("markdown", mdrenderer)
 
 function button(args) {
     let btn = document.createElement("button")
+    btn.className = "btn"
     btn.innerText = args[0]
     btn.onclick = args[1]
     return btn

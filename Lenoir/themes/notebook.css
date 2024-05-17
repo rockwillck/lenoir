@@ -181,7 +181,7 @@ a {
 	box-sizing: border-box;
 }
 
-pre, button {
+pre, .btn {
 	background-color: white;
 	border:solid;
 	border-width: 2px;
@@ -196,13 +196,13 @@ code {
 	color: rgb(86, 86, 86);
 }
 
-button {
+.btn {
     transition: 0.2s;
 }
-button:hover {
+.btn:hover {
 	box-shadow: 5px 5px 0px black;
 }
-button:active {
+.btn:active {
     background-color: black;
     color: white;
 }

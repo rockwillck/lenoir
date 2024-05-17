@@ -187,7 +187,7 @@ pre {
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
 
-button {
+.btn {
 	width: 100%;
 	font-family: inherit;
 	font-size: inherit;

@@ -16,7 +16,7 @@ function home() {
     let landing = new Page("Lenoir, a modern webkit.", headingContent, "hero", backgroundImgSrc, 0.5, 0.01)
 
     ultra(landing, LenoirPrebuilts.verticalSpacer(2))
-    ultra(landing, LenoirPrebuilts.image("https://www.linakis.com/-/media/linakisdigital/images/blog/ancient_aliweb.jpeg?la=en&hash=4B59CFE09B144A18C906828FDC64C4AE8ADBEB92", "Old internet screenshot", 6, 14))
+    ultra(landing, LenoirPrebuilts.image("https://www.webdesignmuseum.org/uploaded/timeline/pizza-hut/pizza-hut-1997.png", "Old internet screenshot", 6, 14))
     ultra(landing, LenoirPrebuilts.monologue(["This is what the internet used to be."], 8, 10, "center"))
     ultra(landing, LenoirPrebuilts.verticalSpacer(1))
     ultra(landing, LenoirPrebuilts.image("https://i.ytimg.com/vi/v1jlkKfwHm8/maxresdefault.jpg", "Mew internet screenshot", 6, 14))

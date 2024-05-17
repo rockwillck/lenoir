@@ -177,7 +177,7 @@ code {
 	color: rgb(86, 86, 86);
 }
 
-button {
+.btn {
 	background: linear-gradient(30deg, black, black 50%, white 50%, white);
     background-size: 300%;
     background-position: 100%;
@@ -187,10 +187,10 @@ button {
 	padding: 10px;
     transition: 0.2s;
 }
-button:hover {
+.btn:hover {
     background-position: 70%;
 }
-button:active {
+.btn:active {
     background-position: 0%;
     color: white;
 }
