@@ -1,4 +1,7 @@
 class LenoirPrebuilts {
+    /* ++ Creates an image-text pair section
+    `orientation` can be `0` (image on the left, text on the right) or `1` (image on the right, text on the left)
+    -- */
     static imageTextPair(imageUrl, text, imageAlt, orientation=0) {
         let section = new Section("top")
         let leftSet = new Part(1, Math.floor(LenoirAssistant.sections/2) - 1)
@@ -16,6 +19,8 @@ class LenoirPrebuilts {
         return section
     }
 
+    /* ++ Creates an image-only section
+    -- */
     static image(imageUrl, imageAlt, left=2, width=LenoirAssistant.sections - 4) {
         let section = new Section()
         let part = new Part(left, width)
@@ -24,6 +29,8 @@ class LenoirPrebuilts {
         return section
     }
 
+    /* ++ Creates a vertical spacer
+    -- */
     static verticalSpacer(height) {
         let section = new Section("top")
         let part = new Part(1, 1)
@@ -32,6 +39,9 @@ class LenoirPrebuilts {
         return section
     }
 
+    /* ++ Creates a header
+    `weight` translates directly to h1, h2, h3 (1 is h1, 2, is h2, etc.)
+    -- */
     static header(text, weight=1, align="center") {
         let section = new Section()
         let head = new Part(2, LenoirAssistant.sections - 4)
@@ -40,6 +50,8 @@ class LenoirPrebuilts {
         return section
     }
 
+    /* ++ Creates a solid block of text
+    -- */
     static monologue(texts, left, width, align="left", color="black") {
         let section = new Section()
         let monologue = new Part(left, width)
@@ -49,7 +61,9 @@ class LenoirPrebuilts {
         section.appendPart(monologue)
         return section
     }
-
+    
+    /* ++ Creates a link 
+    -- */
     static link(text, src, left, width) {
         let section = new Section()
         let part = new Part(left, width)
@@ -58,6 +72,8 @@ class LenoirPrebuilts {
         return section
     }
 
+    /* ++ Creates a markdown section
+    -- */
     static markdown(text, left, width, align="center") {
         let section = new Section()
         let md = new Part(left, width)
@@ -66,6 +82,9 @@ class LenoirPrebuilts {
         return section
     }
 
+    /* ++ Creates a button
+    `action` will be called as `action()`
+    -- */
     static button(text, action, left, width) {
         let section = new Section()
         let part = new Part(left, width)
@@ -75,7 +94,14 @@ class LenoirPrebuilts {
     }
 }
 
+class Ultra {
+    /* ++ Speeds up development by compiling sections and appending to the Page all in one
+    -- */
+    static ultra(page, section) {
+        section.compile()
+        page.appendSection(section)
+    }
+}
 function ultra(page, section) {
-    section.compile()
-    page.appendSection(section)
+    Ultra.ultra(page, section)
 }

@@ -102,18 +102,18 @@ I contained all that code in a `home()` method, but that's moreso convention tha
 - [ ] Full Documentation
     - [x] Quickstart
     - [ ] Full dynamic site
-    - [ ] Baking
+    - [x] Baking
     - [ ] Theming
-    - [ ] Lenoir Class
+    - [x] Lenoir Class
     - [ ] LenoirExtensions
-        - [ ] Class
+        - [x] Class
         - [ ] Core extensions
-        - [ ] Writing extensions
-    - [ ] Page Class
-    - [ ] Section Class
-    - [ ] Part Class
-    - [ ] Component Class
-    - [ ] LenoirPrebuilts Class
+        - [ ] Creating extensions
+    - [x] Page Class
+    - [x] Section Class
+    - [x] Part Class
+    - [x] Component Class
+    - [x] LenoirPrebuilts Class
 - [ ] Themes
     - [x] Default
     - [x] Notebook

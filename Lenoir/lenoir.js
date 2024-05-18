@@ -14,20 +14,31 @@ class Lenoir {
     static urls = {}
     static nav
     static name = ""
-    static favicon = "https://i.ibb.co/z2yM7D9/ICO-to-PNG-Converter.png"
+    static favicon = "Lenoir/lenoir.png"
     static setSections(sections) {
         LenoirAssistant.sections = sections
     }
+    /* ++ Registers a page
+    -- */
     static registerPage(id, page, url) {
         this.pages[id] = page
         this.ids[page] = id
         this.urls[id] = url
     }
+
+    /* ++ Define settings for nav
+    -- */
     static navSettings(color="black", opaque=false) {
-        this.navSettings.color = color
+        this.navSettings.coslor = color
         this.navSettings.opaque = opaque
     }
-    static load(name, favicon="https://i.ibb.co/z2yM7D9/ICO-to-PNG-Converter.png", faviconInNav=true, doc=document.body) {
+
+    /* ++ Loads a site
+    `name` serves as the alt text for the favicon.
+    `faviconInNav` defines whether the favicon appears in the navbar.
+    `doc` is the element to which the site content is appended. It is not recommended to supply any argument other than `document.body`.
+    -- */
+    static load(name, favicon="Lenoir/lenoir.png", faviconInNav=true, doc=document.body) {
         this.name = name
         this.favicon = favicon
         let faviconLink = document.querySelector("link[rel~='icon']");
@@ -92,6 +103,10 @@ class Lenoir {
         })
     }
 
+
+    /* ++ Bakes the dynamically generated site to static files
+    `name`, `favicon`, and `faviconInNav` are the same arguments as in `load`.
+    -- */
     static bake(name=this.name, favicon=this.favicon, faviconInNav=this.faviconInNav) {
         let bakedDocs = []
         for (let page of Object.keys(this.pages)){
@@ -176,19 +191,16 @@ class Lenoir {
 
 class LenoirExtensions {
     static componentTypes = {}
-    static modifiers = {}
+
+    /* ++ Register a new component type
+    `method` is a user-created function that takes in arguments (provided as a single list) and returns a DOM element.
+    -- */
     static registerComponentType(type, method) {
         this.componentTypes[type] = method
     }
+
     static renderComponentType(type, content) {
         return this.componentTypes[type](content)
-    }
-
-    static registerModifier(type, method) {
-        this.modifiers[type] = method
-    }
-    static applyModifier(type, ...input) {
-        return this.modifiers[type](input)
     }
 }
 
@@ -215,7 +227,19 @@ class LenoirAssistant {
 }
 
 class Page {
-    constructor(description, section, type="hero", backgroundImg="https://images.unsplash.com/photo-1709891798937-fd431bd7e10b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", attachmentX=0.5, attachmentY=0.5, parallaxRate=0.8) {
+    /* ++ Initializes a Page
+    `description` is the content of a meta tag. It will not be visually displayed.
+    `section` is the section that will be used as the header.
+    `type` is the type of header. The four types are:
+    - `hero`, which is a full screen height image
+    - `large`, which is a large height image
+    - `small`, which is a small height image
+    - `title`, which is only the section with no background image  
+
+    `attachmentX` and `attachmentY` are values from 0 to 1 that define the anchor point of the background image.
+    `parallaxRate` is a value from -1 to 1.
+    -- */
+    constructor(description, section, type="hero", backgroundImg="bg.avif", attachmentX=0.5, attachmentY=0.5, parallaxRate=-1) {
         this.sections = []
         this.heading = document.createElement("div")
         this.description = description
@@ -246,15 +270,24 @@ class Page {
         }
         this.heading.appendChild(section.div)
     }
+
+    /* ++ Updates the banner image 
+    -- */
     updateBannerImg(src) {
         this.banner.src = src
     }
+
+    /* ++ Adds a section to the page
+    -- */
     appendSection(section) {
         this.sections.push(section)
     }
 }
 
 class Section {
+    /* ++ Creates a section
+    `align` defines how items are aligned vertically. It can be `top`, `bottom`, or `center`.
+    -- */
     constructor(align="center") {
         if (align == "top") {
             align = "start"
@@ -267,12 +300,19 @@ class Section {
         this.div.className = "section"
         this.div.style.alignItems = align
     }
+
+    /* ++ Adds a part to the section
+    -- */
     appendPart(part) {
         this.parts.push(part)
         this.parts.sort((a, b) => {
             return a.left - b.left
         })
     }
+    
+    /* ++ Compiles a section
+    Every section *must* be compiled before it shows up in a Page.
+    -- */
     compile() {
         let compiled = [LenoirAssistant.getSpacer(this.parts[0].left)]
         for (let i = 0; i < this.parts.length; i++) {
@@ -292,6 +332,11 @@ class Section {
 }
 
 class Part {
+    /* ++ Creates a part
+    `left` is the number of units from the left that the Part starts.  
+    `width` is the width of the part.  
+    `align` defines the *text align* of the part (not the item align!). It can be `left`, `center`, or `right`.
+    -- */
     constructor(left, width, align="center") {
         this.left = left
         this.right = this.left + width
@@ -303,17 +348,25 @@ class Part {
         this.innerDiv.className = `vstack ${align}`
         this.div.appendChild(this.innerDiv)
     }
+
+    /* ++ Appends a component to a Part
+    -- */
     appendComponent(component) {
         this.innerDiv.appendChild(component.div)
     }
 }
 
 class Component {
+    /* ++ Creates a component
+    `type` is the type of component, which can be either a built-in type or a component defined using `registerComponentType`.
+    `...content` are further arguments. They can be provided sequentially.
+    -- */
     constructor(type, ...content) {
         this.type = type
         this.content = content
         this.render()
     }
+    
     render() {
         this.div = LenoirExtensions.renderComponentType(this.type, this.content)
         return this.div
