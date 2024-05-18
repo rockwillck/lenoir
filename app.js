@@ -10,7 +10,7 @@ function home() {
     headingContent.compile()
 
     // default theme
-    let backgroundImgSrc = "https://i.pinimg.com/originals/3f/5d/85/3f5d85871b2eef01adf77c09b67f25f5.gif"
+    let backgroundImgSrc = "bg.gif"
     // notebook theme
     // let backgroundImgSrc = "https://artparts.co/wp-content/uploads/2019/12/Crumpled-Paper.gif"
     let landing = new Page("Lenoir, a modern webkit.", headingContent, "hero", backgroundImgSrc, 0.5, 0.01)

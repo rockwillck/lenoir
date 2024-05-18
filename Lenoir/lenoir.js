@@ -239,7 +239,7 @@ class Page {
     `attachmentX` and `attachmentY` are values from 0 to 1 that define the anchor point of the background image.
     `parallaxRate` is a value from -1 to 1.
     -- */
-    constructor(description, section, type="hero", backgroundImg="bg.avif", attachmentX=0.5, attachmentY=0.5, parallaxRate=-1) {
+    constructor(description, section, type="hero", backgroundImg="Lenoir/bg.avif", attachmentX=0.5, attachmentY=0.5, parallaxRate=-1) {
         this.sections = []
         this.heading = document.createElement("div")
         this.description = description
