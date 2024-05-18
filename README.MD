@@ -21,6 +21,8 @@ git clone https://github.com/rockwillck/Lenoir.git
 ```
 ### File Structure
 Open the repository you just cloned. If you serve the files on a private server right now, you'll get the Lenoir demo site. Everything inside the `Lenoir` folder are package files: you don't need to touch them. `theme.css` is your theme file: it dictates how your site looks. If you want to create your own file from scratch, duplicate `template.css` and rename it to `theme.css`.
+### Usage
+There is near-complete documentation at [Lenoir > Lenoir-documentation.md](https://github.com/rockwillck/lenoir/blob/main/Lenoir/Lenoir-documentation.md). A guide and more comprehensive documentation is in progress.
 ### Quickstart
 To make your first site, copy the following code into an empty `app.js`.
 ```javascript
