@@ -41,7 +41,7 @@ __Register a new component type__
   
 
 ##  Creating custom components
-```  
+```javascript  
 creator_function(args) {  
     // Create DOM element  
     return dom_element  
