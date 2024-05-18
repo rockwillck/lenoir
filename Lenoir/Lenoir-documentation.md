@@ -1,4 +1,22 @@
 # Lenoir
+
+##  Component Types
+- `text`  
+    - (text, align="left", color="inherit")  
+- `header`  
+    - (text, weight, align="center")  
+- `spacer`  
+    - (height)  
+- `image`  
+    - (src, alt="An image served by the Lenoir webkit.")  
+- `link`  
+    - (text, src)  
+- `raw`  
+    - (html)  
+- `markdown`  
+    - (markdown, align="center")  
+- `button`  
+    - (text, action)  
 ## Lenoir
 ### static registerPage(id, page, url)
 __Registers a page__  
@@ -21,8 +39,17 @@ __Bakes the dynamically generated site to static files__
 __Register a new component type__  
 `method` is a user-created function that takes in arguments (provided as a single list) and returns a DOM element.  
   
+
+##  Creating custom components
+```  
+creator_function(args) {  
+    // Create DOM element  
+    return dom_element  
+}  
+LenoirExtensions.registerComponentType("component_name", creator_function)  
+```  
 ## Page
-### constructor(description, section, type="hero", backgroundImg="bg.avif", attachmentX=0.5, attachmentY=0.5, parallaxRate=-1)
+### constructor(description, section, type="hero", backgroundImg="Lenoir/bg.avif", attachmentX=0.5, attachmentY=0.5, parallaxRate=-1)
 __Initializes a Page__  
 `description` is the content of a meta tag. It will not be visually displayed.  
 `section` is the section that will be used as the header.  
@@ -69,6 +96,9 @@ __Creates a component__
 `type` is the type of component, which can be either a built-in type or a component defined using `registerComponentType`.  
 `...content` are further arguments. They can be provided sequentially.  
   
+
+##  Theming
+To theme, open `../template.css` in the superdirectory. Elements already have some styles, and it is not recommended to override them. Base styles can be seen in `lenoir.css`. If you need an example, open `themes/default.css`.  
 ## LenoirPrebuilts
 ### static imageTextPair(imageUrl, text, imageAlt, orientation=0)
 __Creates an image-text pair section__  

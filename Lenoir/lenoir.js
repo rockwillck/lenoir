@@ -203,6 +203,15 @@ class LenoirExtensions {
         return this.componentTypes[type](content)
     }
 }
+/* + Creating custom components
+```
+creator_function(args) {
+    // Create DOM element
+    return dom_element
+}
+LenoirExtensions.registerComponentType("component_name", creator_function)
+```
+-- */
 
 class LenoirAssistant {
     static sections = 8
@@ -372,3 +381,7 @@ class Component {
         return this.div
     }
 }
+
+/* + Theming
+To theme, open `../template.css` in the superdirectory. Elements already have some styles, and it is not recommended to override them. Base styles can be seen in `lenoir.css`. If you need an example, open `themes/default.css`.
+-- */

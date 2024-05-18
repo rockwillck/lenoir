@@ -101,21 +101,21 @@ I contained all that code in a `home()` method, but that's moreso convention tha
 - [x] Button component
 - [x] Raw HTML component
 - [x] Markdown component
-- [ ] Full Documentation
+- [x] Full Documentation
     - [x] Quickstart
-    - [ ] Full dynamic site
     - [x] Baking
-    - [ ] Theming
+    - [x] Theming
     - [x] Lenoir Class
-    - [ ] LenoirExtensions
+    - [x] LenoirExtensions
         - [x] Class
-        - [ ] Core extensions
-        - [ ] Creating extensions
+        - [x] Core extensions
+        - [x] Creating extensions
     - [x] Page Class
     - [x] Section Class
     - [x] Part Class
     - [x] Component Class
     - [x] LenoirPrebuilts Class
+- [ ] Guide to create a full site
 - [ ] Themes
     - [x] Default
     - [x] Notebook
@@ -124,7 +124,7 @@ I contained all that code in a `home()` method, but that's moreso convention tha
     - [ ] Pop
 - [ ] Subpages
 ## View Live
-A demo site (and in-construction documentation) is available [here](https://www.rockwill.dev/lenoir).
+A demo site is available [here](https://www.rockwill.dev/lenoir).
 ## License
 This software is licensed under the Bok Choy General Software License. The full text of the license should be included below. If not, more information can be found at https://www.rockwill.dev/Bok-Choy-License/.
 ```
