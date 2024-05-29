@@ -1,6 +1,5 @@
 # Lenoir
 A modern, concise web development toolkit
-<a href="https://www.buymeacoffee.com/rockwill"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=rockwill&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 ## A (Very) Brief History
 Lenoir is named after the first engine with a sparkplug. Lenoir was created for use by my web development agency, Sparkplug.Page. I am clever. Lenoir was written in a weekend and is currently being expanded, with documentation being... appropriately procrastinated upon. Cheers!  
 ## Features
@@ -126,6 +125,9 @@ I contained all that code in a `home()` method, but that's moreso convention tha
 - [ ] Subpages
 ## View Live
 A demo site is available [here](https://www.rockwill.dev/lenoir).
+## Support Lenoir
+Lenoir is a solo developed, open-source project. Any support is welcomed but is only that - support. Lenoir will always be free and available on GitHub.  
+<a href="https://www.buymeacoffee.com/rockwill"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=rockwill&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 ## License
 This software is licensed under the Bok Choy General Software License. The full text of the license should be included below. If not, more information can be found at https://www.rockwill.dev/Bok-Choy-License/.
 ```
