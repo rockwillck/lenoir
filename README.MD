@@ -127,6 +127,7 @@ I contained all that code in a `home()` method, but that's moreso convention tha
 A demo site is available [here](https://www.rockwill.dev/lenoir).
 ## Support Lenoir
 Lenoir is a solo developed, open-source project. Any support is welcomed but is only that - support. Lenoir will always be free and available on GitHub.  
+  
 <a href="https://www.buymeacoffee.com/rockwill"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=rockwill&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 ## License
 This software is licensed under the Bok Choy General Software License. The full text of the license should be included below. If not, more information can be found at https://www.rockwill.dev/Bok-Choy-License/.
