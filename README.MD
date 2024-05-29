@@ -1,5 +1,6 @@
 # Lenoir
 A modern, concise web development toolkit
+<a href="https://www.buymeacoffee.com/rockwill"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=rockwill&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 ## A (Very) Brief History
 Lenoir is named after the first engine with a sparkplug. Lenoir was created for use by my web development agency, Sparkplug.Page. I am clever. Lenoir was written in a weekend and is currently being expanded, with documentation being... appropriately procrastinated upon. Cheers!  
 ## Features
