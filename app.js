@@ -136,7 +136,7 @@ function indepth() {
     let headingContent = new Section()
     let title = new Part(12, 2)
     title.appendComponent(new Component("spacer", 1))
-    title.appendComponent(new Component("header", "Full Documentation", 1))
+    title.appendComponent(new Component("header", "Reference", 1))
     headingContent.appendPart(title)
     headingContent.compile()
 
