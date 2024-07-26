@@ -132,5 +132,172 @@ I contained all that code in a \`home()\` method, but that's moreso convention t
 }
 documentation()
 
+function indepth() {
+    let headingContent = new Section()
+    let title = new Part(12, 2)
+    title.appendComponent(new Component("spacer", 1))
+    title.appendComponent(new Component("header", "Full Documentation", 1))
+    headingContent.appendPart(title)
+    headingContent.compile()
+
+    let reference = new Page("Full Documentation for Lenoir", headingContent, "title")
+
+    ultra(reference, LenoirPrebuilts.header("Full Documentation", 2))
+    let quickstart = new Section()
+    let quickstartContent = new Part(2, 22)
+    quickstartContent.appendComponent(new Component("markdown", `This is a complete reference manual for Lenoir. It is not a tutorial or a guided project. More detailed tutorials are in the works, but all necessary information to build a website using Lenoir is contained within this manual. If you have any questions, please raise an Issue on [Github](https://github.com/rockwillck/lenoir).
+
+# Lenoir
+
+##  Component Types
+- \`text\`  
+    - (text, align="left", color="inherit")  
+- \`header\`  
+    - (text, weight, align="center")  
+- \`spacer\`  
+    - (height)  
+- \`image\`  
+    - (src, alt="An image served by the Lenoir webkit.")  
+- \`link\`  
+    - (text, src)  
+- \`raw\`  
+    - (html)  
+- \`markdown\`  
+    - (markdown, align="center")  
+- \`button\`  
+    - (text, action)  
+## LenoirPrebuilts
+### static imageTextPair(imageUrl, text, imageAlt, orientation=0)
+**Creates an image-text pair section**  
+\`orientation\` can be \`0\` (image on the left, text on the right) or \`1\` (image on the right, text on the left)  
+  
+### static image(imageUrl, imageAlt, left=2, width=LenoirAssistant.sections - 4)
+**Creates an image-only section**  
+  
+### static verticalSpacer(height)
+**Creates a vertical spacer**  
+  
+### static header(text, weight=1, align="center")
+**Creates a header**  
+\`weight\` translates directly to h1, h2, h3 (1 is h1, 2, is h2, etc.)  
+  
+### static monologue(texts, left, width, align="left", color="black")
+**Creates a solid block of text**  
+  
+### static link(text, src, left, width)
+**Creates a link**  
+  
+### static markdown(text, left, width, align="center")
+**Creates a markdown section**  
+  
+### static button(text, action, left, width)
+**Creates a button**  
+\`action\` will be called as \`action()\`  
+  
+## Ultra
+### static ultra(page, section)
+**Speeds up development by compiling sections and appending to the Page all in one**  
+  
+## Lenoir
+### static registerPage(id, page, url)
+**Registers a page**  
+  
+### static setChildParent(childId, parentId)
+**Makes one page a subpage of another**  
+\`childId\` is the id of the subpage.  
+\`parentId\` is the id of the parent page.  
+You cannot have a subpage of a subpage.  
+  
+### static navSettings(color="black", opaque=false)
+**Define settings for nav**  
+  
+### static load(name, favicon="Lenoir/lenoir.png", faviconInNav=true, doc=document.body)
+**Loads a site**  
+\`name\` serves as the alt text for the favicon.  
+\`faviconInNav\` defines whether the favicon appears in the navbar.  
+\`doc\` is the element to which the site content is appended. It is not recommended to supply any argument other than \`document.body\`.  
+  
+### static bake(name=this.name, favicon=this.favicon, faviconInNav=this.faviconInNav)
+**Bakes the dynamically generated site to static files**  
+\`name\`, \`favicon\`, and \`faviconInNav\` are the same arguments as in \`load\`.  
+  
+## LenoirExtensions
+### static registerComponentType(type, method)
+**Register a new component type**  
+\`method\` is a user-created function that takes in arguments (provided as a single list) and returns a DOM element.  
+  
+
+##  Creating custom components
+\`\`\`javascript  
+creator*function(args) {  
+    // Create DOM element  
+    return dom*element  
+}  
+LenoirExtensions.registerComponentType("component*name", creator*function)  
+\`\`\`  
+## Page
+### constructor(description, section, type="hero", backgroundImg="Lenoir/bg.avif", attachmentX=0.5, attachmentY=0.5, parallaxRate=-1)
+**Initializes a Page**  
+\`description\` is the content of a meta tag. It will not be visually displayed.  
+\`section\` is the section that will be used as the header.  
+\`type\` is the type of header. The four types are:  
+- \`hero\`, which is a full screen height image  
+- \`large\`, which is a large height image  
+- \`small\`, which is a small height image  
+- \`title\`, which is only the section with no background image  
+  
+\`attachmentX\` and \`attachmentY\` are values from 0 to 1 that define the anchor point of the background image.  
+\`parallaxRate\` is a value from -1 to 1.  
+  
+### updateBannerImg(src)
+**Updates the banner image**  
+  
+### appendSection(section)
+**Adds a section to the page**  
+  
+## Section
+### constructor(align="center")
+**Creates a section**  
+\`align\` defines how items are aligned vertically. It can be \`top\`, \`bottom\`, or \`center\`.  
+  
+### appendPart(part)
+**Adds a part to the section**  
+  
+### compile()
+**Compiles a section**  
+Every section *must* be compiled before it shows up in a Page.  
+  
+## Part
+### constructor(left, width, align="center")
+**Creates a part**  
+\`left\` is the number of units from the left that the Part starts.  
+\`width\` is the width of the part.  
+\`align\` defines the *text align* of the part (not the item align!). It can be \`left\`, \`center\`, or \`right\`.  
+  
+### appendComponent(component)
+**Appends a component to a Part**  
+  
+## Component
+### constructor(type, ...content)
+**Creates a component**  
+\`type\` is the type of component, which can be either a built-in type or a component defined using \`registerComponentType\`.  
+\`...content\` are further arguments. They can be provided sequentially.  
+  
+
+##  Theming
+To theme, open \`../template.css\` in the superdirectory. Elements already have some styles, and it is not recommended to override them. Base styles can be seen in \`lenoir.css\`. If you need an example, open \`themes/default.css\`.  
+`, "left"))
+    quickstart.appendPart(quickstartContent)
+    quickstart.compile()
+    reference.appendSection(quickstart)
+
+    ultra(reference, LenoirPrebuilts.verticalSpacer(1))
+
+    Lenoir.registerPage("Reference", reference, "depth.html")
+}
+indepth()
+
+Lenoir.setChildParent("Reference","Documentation")
+
 Lenoir.load("Lenoir")
 // Lenoir.bake("Lenoir")

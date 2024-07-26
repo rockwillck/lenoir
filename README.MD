@@ -122,7 +122,7 @@ I contained all that code in a `home()` method, but that's moreso convention tha
     - [x] Glass
     - [ ] Neumorph
     - [ ] Pop
-- [ ] Subpages
+- [x] Subpages
 ## View Live
 A demo site is available [here](https://www.rockwill.dev/lenoir).
 ## Support Lenoir

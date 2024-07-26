@@ -17,9 +17,47 @@
     - (markdown, align="center")  
 - `button`  
     - (text, action)  
+## LenoirPrebuilts
+### static imageTextPair(imageUrl, text, imageAlt, orientation=0)
+__Creates an image-text pair section__  
+`orientation` can be `0` (image on the left, text on the right) or `1` (image on the right, text on the left)  
+  
+### static image(imageUrl, imageAlt, left=2, width=LenoirAssistant.sections - 4)
+__Creates an image-only section__  
+  
+### static verticalSpacer(height)
+__Creates a vertical spacer__  
+  
+### static header(text, weight=1, align="center")
+__Creates a header__  
+`weight` translates directly to h1, h2, h3 (1 is h1, 2, is h2, etc.)  
+  
+### static monologue(texts, left, width, align="left", color="black")
+__Creates a solid block of text__  
+  
+### static link(text, src, left, width)
+__Creates a link__  
+  
+### static markdown(text, left, width, align="center")
+__Creates a markdown section__  
+  
+### static button(text, action, left, width)
+__Creates a button__  
+`action` will be called as `action()`  
+  
+## Ultra
+### static ultra(page, section)
+__Speeds up development by compiling sections and appending to the Page all in one__  
+  
 ## Lenoir
 ### static registerPage(id, page, url)
 __Registers a page__  
+  
+### static setChildParent(childId, parentId)
+__Makes one page a subpage of another__  
+`childId` is the id of the subpage.  
+`parentId` is the id of the parent page.  
+You cannot have a subpage of a subpage.  
   
 ### static navSettings(color="black", opaque=false)
 __Define settings for nav__  
@@ -99,35 +137,3 @@ __Creates a component__
 
 ##  Theming
 To theme, open `../template.css` in the superdirectory. Elements already have some styles, and it is not recommended to override them. Base styles can be seen in `lenoir.css`. If you need an example, open `themes/default.css`.  
-## LenoirPrebuilts
-### static imageTextPair(imageUrl, text, imageAlt, orientation=0)
-__Creates an image-text pair section__  
-`orientation` can be `0` (image on the left, text on the right) or `1` (image on the right, text on the left)  
-  
-### static image(imageUrl, imageAlt, left=2, width=LenoirAssistant.sections - 4)
-__Creates an image-only section__  
-  
-### static verticalSpacer(height)
-__Creates a vertical spacer__  
-  
-### static header(text, weight=1, align="center")
-__Creates a header__  
-`weight` translates directly to h1, h2, h3 (1 is h1, 2, is h2, etc.)  
-  
-### static monologue(texts, left, width, align="left", color="black")
-__Creates a solid block of text__  
-  
-### static link(text, src, left, width)
-__Creates a link__  
-  
-### static markdown(text, left, width, align="center")
-__Creates a markdown section__  
-  
-### static button(text, action, left, width)
-__Creates a button__  
-`action` will be called as `action()`  
-  
-## Ultra
-### static ultra(page, section)
-__Speeds up development by compiling sections and appending to the Page all in one__  
-  

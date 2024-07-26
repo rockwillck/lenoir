@@ -10,6 +10,7 @@ class MockDocument {
 
 class Lenoir {
     static pages = {}
+    static childParents = {}
     static ids = {}
     static urls = {}
     static nav
@@ -24,6 +25,23 @@ class Lenoir {
         this.pages[id] = page
         this.ids[page] = id
         this.urls[id] = url
+    }
+
+    /* ++ Makes one page a subpage of another
+    `childId` is the id of the subpage.
+    `parentId` is the id of the parent page.
+    You cannot have a subpage of a subpage.
+    -- */
+    static setChildParent(childId, parentId) {
+        if (!Object.values(this.childParents).flat().includes(parentId)) {
+            if (this.childParents[parentId] == undefined) {
+                this.childParents[parentId] = [childId]
+            } else {
+                this.childParents[parentId].push(childId)
+            }
+        } else {
+            throw new Error("Page cannot be a subpage of a subpage")
+        }
     }
 
     /* ++ Define settings for nav
@@ -74,14 +92,42 @@ class Lenoir {
             siteName.innerText = this.name
         }
         this.nav.appendChild(siteName)
+
+        let allChildParents = []
+        let allPages = Object.keys(this.pages)
+        for (let id of Object.keys(this.childParents).concat(Object.values(this.childParents).flat())) {
+            allPages = allPages.filter(x => x != id)
+        }
+        console.log(allChildParents, allPages)
+
         let links = document.createElement("div")
         links.className = "links"
-        for (let pageId of Object.keys(this.pages)) {
+        for (let pageId of allPages) {
             let link = document.createElement("a")
             link.innerText = pageId
             link.className = "siteLink"
             link.href = this.urls[pageId]
             links.appendChild(link)
+        }
+        for (let pageIdKey of Object.keys(this.childParents)) {
+            let subnav = document.createElement("div")
+            subnav.className = "subnav"
+            let link = document.createElement("a")
+            link.innerText = pageIdKey
+            link.className = "siteLink"
+            link.href = this.urls[pageIdKey]
+            subnav.appendChild(link)
+            let subnavContents = document.createElement("div")
+            subnavContents.className = "subnavContents"
+            for (let subpageId of this.childParents[pageIdKey]) {
+                let subLink = document.createElement("a")
+                subLink.innerText = subpageId
+                subLink.className = "siteLink"
+                subLink.href = this.urls[subpageId]
+                subnavContents.appendChild(subLink)
+            }
+            subnav.appendChild(subnavContents)
+            links.appendChild(subnav)
         }
         this.nav.appendChild(links)
         doc.appendChild(this.nav)

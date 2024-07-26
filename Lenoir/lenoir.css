@@ -178,6 +178,9 @@ code {
 	max-width: 100%;
 	box-sizing: border-box;
 }
+.markdown > * {
+	display: block;
+}
 
 pre {
 	white-space: pre-wrap;       /* Since CSS 2.1 */
@@ -185,10 +188,31 @@ pre {
     white-space: -pre-wrap;      /* Opera 4-6 */
     white-space: -o-pre-wrap;    /* Opera 7 */
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
+	font-family: inherit;
 }
 
 .btn {
 	width: 100%;
 	font-family: inherit;
 	font-size: inherit;
+}
+
+.subnav {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.subnav > a {
+}
+.subnavContents {
+	display: none;
+	position: absolute;
+	top: 1em;
+}
+.subnav:hover .subnavContents { 
+	display: block;
+}
+.subnavContents > * {
+	display: block;
 }

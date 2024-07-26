@@ -43,7 +43,7 @@ class CoreExtensions {
     
     static markdown(args) {
         let markdown = args[0]
-        markdown = markdown.split("\n").map((x) => x.trim()).join("\n")
+        markdown = "<pre>"+markdown.split("\n").map((x) => x.trim().startsWith("-") ? `<li style="text-indent:${x.match(/^  +/)?.[0].length*5 || 0}px;">${x.trim().slice(1)}</li>` : x.trim()).map((x) => x.startsWith("#") ? `<h${x.match(/^#+/)?.[0].length} style="padding:inherit;">${x.slice(x.match(/^#+/)?.[0].length)}</h${x.match(/^#+/)?.[0].length}>` : x).join(`\n`)+"</pre>"
         const result = document.createElement('div');
         result.className = "markdown"
         result.style.textAlign = args.length > 1 ? args[1] : "center"
@@ -52,20 +52,26 @@ class CoreExtensions {
         let italicRegex = /\*(.*?)\*/g;
         let codeRegex = /`(.*?)`/g;
         let codeBlockRegex = /```([a-zA-Z]+)?\n([\s\S]*?)\n```/g;
+        let imgRegex = /!\[([^\]]+)\]\(([^)]+)\)/g
+        let linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g
     
         const boldReplace = '<strong>$1</strong>';
         const italicReplace = '<em>$1</em>';
         const codeReplace = '<code>$1</code>';
+        const imgReplace = '<img alt="$1" src="$2">'
+        const linkReplace = '<a href="$2">$1</a>'
     
         // Replace code blocks
         markdown = markdown.replace(codeBlockRegex, (_, language, code) => {
-            return `<pre><code class="${language}">${code}</code></pre>`
+            return `<pre class="codeblock"><code class="${language}">${code}</code></pre>`
         });
     
         // Replace bold, italic, and inline code
         markdown = markdown.replace(boldRegex, boldReplace)
                            .replace(italicRegex, italicReplace)
-                           .replace(codeRegex, codeReplace);
+                           .replace(codeRegex, codeReplace)
+                           .replace(imgRegex, imgReplace)
+                           .replace(linkRegex, linkReplace);
     
         result.innerHTML = markdown
     
