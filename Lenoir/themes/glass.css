@@ -161,8 +161,8 @@ p {
 a {
 }
 
-.codeblock {
-	background-color: rgb(244, 239, 223);
+pre {
+	background-color: gainsboro;
 	padding: 10px;
 	box-sizing: border-box;
 	border-radius: 10px;
@@ -191,8 +191,18 @@ code {
 	content: " ▼";
 }
 .subnavContents {
+	padding: 10px;
 	box-sizing: border-box;
-	translate: 0 20px;
-    background-color: white;
-    border-radius: 10px;
+}
+@media (orientation:landscape) {
+    .subnavContents {
+    	translate: 0 20px;
+    }
+}
+.subnavContents > * {
+    background-color: rgb(233, 227, 206);
+}
+
+.markdown > pre > :is(h1, h2, h3, h4, h5, h6) {
+    padding: 10px !important;
 }

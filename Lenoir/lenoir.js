@@ -93,13 +93,12 @@ class Lenoir {
         }
         this.nav.appendChild(siteName)
 
-        let allChildParents = []
         let allPages = Object.keys(this.pages)
         for (let id of Object.keys(this.childParents).concat(Object.values(this.childParents).flat())) {
             allPages = allPages.filter(x => x != id)
         }
-        console.log(allChildParents, allPages)
 
+        let allComponents = {}
         let links = document.createElement("div")
         links.className = "links"
         for (let pageId of allPages) {
@@ -107,7 +106,8 @@ class Lenoir {
             link.innerText = pageId
             link.className = "siteLink"
             link.href = this.urls[pageId]
-            links.appendChild(link)
+            allComponents[pageId] = link
+            // links.appendChild(link)
         }
         for (let pageIdKey of Object.keys(this.childParents)) {
             let subnav = document.createElement("div")
@@ -127,8 +127,17 @@ class Lenoir {
                 subnavContents.appendChild(subLink)
             }
             subnav.appendChild(subnavContents)
-            links.appendChild(subnav)
+            allComponents[pageIdKey] = subnav
+            // links.appendChild(subnav)
         }
+        for (let c of Object.keys(this.pages)) {
+            try {
+                links.appendChild(allComponents[c])
+            } catch (e) {
+                
+            }
+        }
+
         this.nav.appendChild(links)
         doc.appendChild(this.nav)
         let page = this.pages[doc.id]

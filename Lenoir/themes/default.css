@@ -5,7 +5,6 @@ body {
 	font-weight: 400;
 	font-style: normal;
 	font-size: max(16px, 2vmin);
-	/* color: white; */
 }
 
 .heading {
@@ -15,8 +14,6 @@ body {
 	color: white;
 }
 .banner > .bannerImg {
-    filter: grayscale() invert() blur(5px) contrast(3) invert();
-	-webkit-filter: grayscale() invert() blur(5px) contrast(3) invert();
 }
 .hero {
 }
@@ -206,5 +203,12 @@ code {
 	border: solid 2px black;
 	padding: 10px;
 	box-sizing: border-box;
-	translate: 0 20px;
+}
+.subnavContents > * {
+    margin: 0;
+}
+@media (orientation:landscape) {
+    .subnavContents {
+    	translate: 0 20px;
+    }
 }

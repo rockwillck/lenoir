@@ -204,6 +204,8 @@ pre {
 	align-items: center;
 }
 .subnav > a {
+	width: 100%;
+	box-sizing: border-box;
 }
 .subnavContents {
 	display: none;
@@ -215,4 +217,17 @@ pre {
 }
 .subnavContents > * {
 	display: block;
+}
+@media (orientation:portrait) {
+	.subnav {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+	.subnavContents {
+		position: initial;
+		width: 100%;
+	}
 }
