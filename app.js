@@ -147,25 +147,24 @@ function indepth() {
     let quickstartContent = new Part(2, 22)
     quickstartContent.appendComponent(new Component("markdown", `This is a complete reference manual for Lenoir. It is not a tutorial or a guided project. More detailed tutorials are in the works, but all necessary information to build a website using Lenoir is contained within this manual. If you have any questions, please raise an Issue on [Github](https://github.com/rockwillck/lenoir).
 
-# Lenoir
 
 ##  Component Types
-- \`text\`  
-    - (text, align="left", color="inherit")  
-- \`header\`  
-    - (text, weight, align="center")  
-- \`spacer\`  
-    - (height)  
-- \`image\`  
-    - (src, alt="An image served by the Lenoir webkit.")  
-- \`link\`  
-    - (text, src)  
-- \`raw\`  
-    - (html)  
-- \`markdown\`  
-    - (markdown, align="center")  
-- \`button\`  
-    - (text, action)  
+        - \`text\`  
+          - (text, align="left", color="inherit")  
+        - \`header\`  
+          - (text, weight, align="center")  
+        - \`spacer\`  
+          - (height)  
+        - \`image\`  
+          - (src, alt="An image served by the Lenoir webkit.")  
+        - \`link\`  
+          - (text, src)  
+        - \`raw\`  
+          - (html)  
+        - \`markdown\`  
+          - (markdown, align="center")  
+        - \`button\`  
+          - (text, action)  
 ## LenoirPrebuilts
 ### static imageTextPair(imageUrl, text, imageAlt, orientation=0)
 **Creates an image-text pair section**  

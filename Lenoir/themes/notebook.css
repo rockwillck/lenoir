@@ -181,7 +181,7 @@ a {
 	box-sizing: border-box;
 }
 
-pre, .btn {
+.codeblock, .btn {
 	background-color: white;
 	border:solid;
 	border-width: 2px;
@@ -205,4 +205,20 @@ code {
 .btn:active {
     background-color: black;
     color: white;
+}
+
+.subnav > a::after {
+	content: " ▼";
+}
+.subnavContents {
+	padding: 10px;
+	box-sizing: border-box;
+	translate: 0 20px;
+}
+.subnavContents > * {
+    background-color: white;
+}
+
+.markdown > pre > :is(h1, h2, h3, h4, h5, h6) {
+    padding: 10px !important;
 }
