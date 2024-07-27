@@ -212,7 +212,7 @@ pre {
 	position: absolute;
 	top: 1em;
 }
-.subnav:hover .subnavContents { 
+.subnav:hover .subnavContents, .subnav:active .subnavContents { 
 	display: block;
 }
 .subnavContents > * {
